@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="menuForm">
+        <p:growl id="messages" autoUpdate="true"/>
+        <p:accordionPanel multiple="true" speed="0.1"  activeIndex="0">
+            <p:tab title="Örnek Menü 1">
+                <p:menu>
+                    <p:menuitem value="Giris" action="giris" ajax="false"/>
+                    <p:menuitem value="Users" action="kullaniciListesi" ajax="false"/>
+                    <p:menuitem value="Ürün Tipi" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Product Description" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Product Type Feature" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Feature" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Product" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Customer" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Customer Account" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Product Sale" action="uruntanimi" ajax="false"/>
+                    <p:menuitem value="Customer Account" action="uruntanimi" ajax="false"/>
+                </p:menu>
+            </p:tab>
+
+            <p:tab title="Örnek Menü 2">
+                <p:menu>
+                    <p:menuitem value="Giris" action="giris" ajax="false"/>
+                    <p:menuitem value="KullaniciListesi" action="kullaniciListesi" ajax="false"/>
+                </p:menu>
+            </p:tab>
+
+        </p:accordionPanel>
+    </h:form>
+</ui:composition>

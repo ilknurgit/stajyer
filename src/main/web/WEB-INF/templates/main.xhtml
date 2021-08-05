@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><ui:insert name="title" /></title>
+    <ui:insert name="head" />
+    <f:facet name="last">
+        <h:outputStylesheet library="css" name="common.css" />
+    </f:facet>
+</h:head>
+<h:body>
+    <f:view contentType="text/html">
+        <div class="header">
+            <h:graphicImage library="images" name="user.png" />
+        </div>
+        <div class="content">
+            <p:dialog id="modalStatus" widgetVar="modalStatusWidget"
+                      draggable="false" closable="false" modal="true"
+                      showHeader="false" resizable="false" maximizable="false"
+                      width="250" height="45" header="Loading..."
+                      style="text-align:center; padding-top:15px;">
+                <h:graphicImage library="images" name="status.gif"
+                                style="padding-right:10px; vertical-align:middle" />
+                <p:outputLabel value="Lütfen Bekleyiniz..." />
+            </p:dialog>
+            <ui:insert name="content" />
+        </div>
+        <div class="footer">
+            <h:form>
+
+
+            </h:form>
+        </div>
+    </f:view>
+</h:body>
+</html>

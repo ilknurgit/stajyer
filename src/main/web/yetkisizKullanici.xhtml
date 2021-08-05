@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+<h:head><title>Hatalı Giriş</title>
+    <h:outputStylesheet library="css" name="common.css"/>
+</h:head>
+<h:body>
+    <ui:composition template="/WEB-INF/templates/main.xhtml">
+        <ui:define name="title">Error Page</ui:define>
+        <ui:define name="content">
+            <div align="center">
+                <h1 class="title">Hataı</h1>
+                <br/>
+
+                <h2>Hatalı Şifre veya Kullanıcı Adı</h2>
+
+                <p>Please <a href="giris.jsf">Tekrar Deneyiniz</a>.</p>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

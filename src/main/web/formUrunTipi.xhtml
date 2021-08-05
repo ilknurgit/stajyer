@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+<ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
+<ui:define name="content">
+<h:form id="form">
+<p:panel header="Select a Location" style="margin-bottom:10px;">
+<p:panelGrid id="grid" columns="2" cellpadding="5">
+    <p:outputLabel value="ÜRÜN TİPLERİ" for="urun"/>
+
+        <p:inputText value="#{formUrunTipi.urunTipi.name}"/>
+
+
+
+
+
+</p:panelGrid>
+</p:panel>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

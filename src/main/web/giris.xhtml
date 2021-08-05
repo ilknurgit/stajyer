@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head/>
+<h:body>
+    <ui:composition template="/WEB-INF/templates/main.xhtml">
+        <div class="page-title">Başlık</div>
+        <ui:define name="content">
+
+            <div align="center">
+                <h1 class="title">JSF 2: Stajyer Magaza Takip</h1>
+                <h1 class="title">Taslak Proje</h1>
+                <br/>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Kullanıcı Adı:"/>
+                        <h:inputText value="#{kullaniciForm.kullanici.kullaniciAdi}"/>
+                        <h:outputLabel value="Şifre:"/>
+                        <h:inputSecret value="#{kullaniciForm.kullanici.sifre}"/><br/>
+                        <h:commandButton value="Giriş Yap"
+                                         action="#{kullaniciForm.kullaniciGiris}"/>
+                    </h:panelGrid>
+
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
