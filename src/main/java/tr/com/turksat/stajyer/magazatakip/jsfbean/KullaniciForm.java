@@ -44,10 +44,14 @@ public class KullaniciForm implements Serializable {
         x.setUruntipi("cep telefonu");
         x.setId(1);
         UrunTipi y = new UrunTipi();
-        y.setUruntipi("11");
+        y.setUruntipi("tablet");
         y.setId(2);
+        UrunTipi z = new UrunTipi();
+        z.setUruntipi("bilgisayar");
+        z.setId(3);
         urunTipleri.add(x);
         urunTipleri.add(y);
+        urunTipleri.add(z);
 
 
         kullanicilar = kullaniciService.getKullanicilar();
