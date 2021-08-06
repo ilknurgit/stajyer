@@ -40,19 +40,20 @@ public class KullaniciForm implements Serializable {
         markatipi = new MarkaTipi();
 //        markalar= new KullaniciService().getMarkalar(uruntipi);
 //        urunTipleri=new KullaniciService().getUrunTipleri();
-        UrunTipi x = new UrunTipi();
-        x.setUruntipi("cep telefonu");
-        x.setId(1);
-        UrunTipi y = new UrunTipi();
-        y.setUruntipi("tablet");
-        y.setId(2);
-        UrunTipi z = new UrunTipi();
-        z.setUruntipi("bilgisayar");
-        z.setId(3);
-        urunTipleri.add(x);
-        urunTipleri.add(y);
-        urunTipleri.add(z);
+//        UrunTipi urunTipi1 = new UrunTipi();
+//        urunTipi1.setUruntipi("cep telefonu");
+//        urunTipi1.setId(1);
+//        UrunTipi urunTipi2 = new UrunTipi();
+//        urunTipi2.setUruntipi("tablet");
+//        urunTipi2.setId(2);
+//        UrunTipi urunTipi3 = new UrunTipi();
+//        urunTipi3.setUruntipi("bilgisayar");
+//        urunTipi3.setId(3);
+//        urunTipleri.add(urunTipi1);
+//        urunTipleri.add(urunTipi2);
+//        urunTipleri.add(urunTipi3);
 
+          urunTipleri=kullaniciService.urunTipiList();
 
         kullanicilar = kullaniciService.getKullanicilar();
     }

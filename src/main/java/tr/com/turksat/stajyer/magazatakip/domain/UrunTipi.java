@@ -19,4 +19,5 @@ public class UrunTipi {
         this.id = id;
     }
 
+
 }
