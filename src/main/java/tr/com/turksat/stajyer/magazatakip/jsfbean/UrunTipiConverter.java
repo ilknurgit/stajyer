@@ -31,7 +31,7 @@ public class UrunTipiConverter implements Converter {
             return null;
         }
     }
-
+    //test
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
         if (object == null || object.equals("")) {
             return "";
