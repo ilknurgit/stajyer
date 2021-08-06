@@ -14,7 +14,7 @@ ALTER TABLE stajyer.tb_kullanici
   OWNER TO stajyer;
 
 
-CREATE TABLE public.tb_urun_tipi (
-  id BIGINT NOT NULL,
+CREATE TABLE stajyer.tb_urun_tipi (
+  id INT NOT NULL,
   urun_tipi varchar
 ) ;

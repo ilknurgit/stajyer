@@ -24,7 +24,7 @@ public class UrunTipiDao {
 
             con = Database.getInstance().getConnection();
             ps = con.prepareStatement(
-                    "select id, type from public.urun_tipi ");
+                    "select id, type from stajyer.urun_tipi ");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) // found
             {
