@@ -39,7 +39,7 @@ public class UrunTipiForm implements Serializable {
     public UrunTipi getUrunTipi() {
         return urunTipi;
     }
-
+ 
     public void setUrunTipi(UrunTipi urunTipi) {
         this.urunTipi = urunTipi;
     }
