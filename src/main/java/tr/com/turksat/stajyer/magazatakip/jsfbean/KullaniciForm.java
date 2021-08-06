@@ -1,8 +1,6 @@
 package tr.com.turksat.stajyer.magazatakip.jsfbean;
 
 import tr.com.turksat.stajyer.magazatakip.domain.Kullanici;
-import tr.com.turksat.stajyer.magazatakip.domain.MarkaTipi;
-import tr.com.turksat.stajyer.magazatakip.domain.ModelTipi;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 import tr.com.turksat.stajyer.magazatakip.service.KullaniciService;
 import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
@@ -19,15 +17,12 @@ public class KullaniciForm implements Serializable {
 
     KullaniciService kullaniciService = new KullaniciService();
     UrunTipiService urunTipiService = new UrunTipiService();
-    List<MarkaTipi> markalar = new ArrayList();
     List<UrunTipi> urunTipleri = new ArrayList();
     List<Kullanici> kullanicilar = new ArrayList<>();
     private Kullanici kullanici;
     private String silinecekUrunTipi = "";
     private String urunTipiid = "";
     private UrunTipi uruntipi;
-    private ModelTipi modeltipi = new ModelTipi();
-    private MarkaTipi markatipi = new MarkaTipi();
 
 
     public KullaniciForm() {
@@ -61,29 +56,6 @@ public class KullaniciForm implements Serializable {
         this.uruntipi = uruntipi;
     }
 
-    //MODEL TİP SET VE GET
-    public ModelTipi getModeltipi() {
-        return modeltipi;
-    }
-
-    public void setModeltipi(ModelTipi modeltipi) {
-        this.modeltipi = modeltipi;
-    }
-
-    //MARKA TİP SET GET
-    public MarkaTipi getMarkatipi() {
-        return markatipi;
-    }
-
-    public void setMarkatipi(MarkaTipi markatipi) {
-        this.markatipi = markatipi;
-    }
-
-
-    //MODEL TİPLERİ LİSTESİ SET VE GET
-    public List<ModelTipi> getModeltiplist() {
-        return new ArrayList<>();
-    }
 
     //SİLİNECEK URUNUNTİPİNİN SET VE GET
     public String getSilinecekUrunTipi() {
@@ -148,14 +120,6 @@ public class KullaniciForm implements Serializable {
         KullaniciService service = new KullaniciService();
 //        uruntipi = service.getUrunTipi(urunTipiid);
         return null;
-    }
-
-    public List<MarkaTipi> getMarkalar() {
-        return markalar;
-    }
-
-    public void setMarkalar(List<MarkaTipi> markalar) {
-        this.markalar = markalar;
     }
 
     public List<UrunTipi> getUrunTipleri() {

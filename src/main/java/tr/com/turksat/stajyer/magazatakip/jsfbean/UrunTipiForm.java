@@ -1,15 +1,11 @@
 package tr.com.turksat.stajyer.magazatakip.jsfbean;
 
-import tr.com.turksat.stajyer.magazatakip.domain.Kullanici;
-import tr.com.turksat.stajyer.magazatakip.domain.MarkaTipi;
-import tr.com.turksat.stajyer.magazatakip.domain.ModelTipi;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 import tr.com.turksat.stajyer.magazatakip.service.KullaniciService;
 import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
