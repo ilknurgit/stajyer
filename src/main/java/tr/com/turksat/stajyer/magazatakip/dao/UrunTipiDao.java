@@ -33,7 +33,7 @@ public class UrunTipiDao {
                 Long id  = rs.getLong("id");
                 String name = rs.getString("type");
                 urunTipi.setId(Integer.valueOf(id!=null?id.toString():"null"));
-                urunTipi.setUruntipi(name);
+                urunTipi.setUrunTipi(name);
                 kullaniciList.add(urunTipi);
 
             }

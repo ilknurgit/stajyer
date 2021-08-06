@@ -15,10 +15,7 @@
 
                             <f:selectItems value="#{kullaniciForm.urunTipleri}" var="tip" itemValue="#{tip}"
                                            itemLabel="#{tip.uruntipi}"/>
-                            <p:ajax update="marka"
-                                    listener="#{kullaniciForm.filtreMarka}"
-                                    process="@this"
-                                    />
+
                         </p:selectOneMenu>
 
 
