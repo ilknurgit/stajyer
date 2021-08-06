@@ -5,6 +5,7 @@ import tr.com.turksat.stajyer.magazatakip.domain.MarkaTipi;
 import tr.com.turksat.stajyer.magazatakip.domain.ModelTipi;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 import tr.com.turksat.stajyer.magazatakip.service.KullaniciService;
+import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -17,6 +18,7 @@ import java.util.List;
 public class KullaniciForm implements Serializable {
 
     KullaniciService kullaniciService = new KullaniciService();
+    UrunTipiService urunTipiService = new UrunTipiService();
     List<MarkaTipi> markalar = new ArrayList();
     List<UrunTipi> urunTipleri = new ArrayList();
     List<Kullanici> kullanicilar = new ArrayList<>();
@@ -34,26 +36,8 @@ public class KullaniciForm implements Serializable {
 
     @PostConstruct
     public void init() {
-        uruntipi = new UrunTipi();
         kullanici = new Kullanici();
-        modeltipi = new ModelTipi();
-        markatipi = new MarkaTipi();
-//        markalar= new KullaniciService().getMarkalar(uruntipi);
-//        urunTipleri=new KullaniciService().getUrunTipleri();
-//        UrunTipi urunTipi1 = new UrunTipi();
-//        urunTipi1.setUruntipi("cep telefonu");
-//        urunTipi1.setId(1);
-//        UrunTipi urunTipi2 = new UrunTipi();
-//        urunTipi2.setUruntipi("tablet");
-//        urunTipi2.setId(2);
-//        UrunTipi urunTipi3 = new UrunTipi();
-//        urunTipi3.setUruntipi("bilgisayar");
-//        urunTipi3.setId(3);
-//        urunTipleri.add(urunTipi1);
-//        urunTipleri.add(urunTipi2);
-//        urunTipleri.add(urunTipi3);
 
-          urunTipleri=kullaniciService.urunTipiList();
 
         kullanicilar = kullaniciService.getKullanicilar();
     }

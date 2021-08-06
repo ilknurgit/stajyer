@@ -13,3 +13,8 @@ CREATE TABLE stajyer.tb_kullanici (
 ALTER TABLE stajyer.tb_kullanici
   OWNER TO stajyer;
 
+
+CREATE TABLE public.tb_urun_tipi (
+  id BIGINT NOT NULL,
+  urun_tipi varchar
+) ;

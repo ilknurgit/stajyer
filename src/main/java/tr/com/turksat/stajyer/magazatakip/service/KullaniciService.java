@@ -27,9 +27,4 @@ public class KullaniciService {
     }
 
 
-    public List<UrunTipi> urunTipiList() {
-
-
-        return kullaniciDao.getUrunTipleri();
-    }
 }
