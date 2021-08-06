@@ -18,4 +18,5 @@ public class UrunTipi {
     public void setId(Integer id) {
         this.id = id;
     }
+
 }
