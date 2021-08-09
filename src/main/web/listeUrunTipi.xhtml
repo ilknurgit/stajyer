@@ -8,17 +8,24 @@
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h:form id="form">
-                <p:panel header="Select a Location" style="margin-bottom:10px;">
-                    <p:panelGrid id="grid" columns="2" cellpadding="5">
-                        <p:outputLabel value="ÜRÜN TİPLERİ" for="urun"/>
-                        <p:selectOneMenu id="urun" value="#{kullaniciForm.uruntipi}" converter="urunTipiConverter">
+                <p:panelGrid id="grid" columns="2" cellpadding="5">
+                    <p:outputLabel value="Ürün Tipleri" for="urunTipi"/>
+                    <p:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" converter="urunTipiConverter">
 
-                            <f:selectItems value="#{kullaniciForm.urunTipleri}" var="tip" itemValue="#{tip}"
-                                           itemLabel="#{tip.uruntipi}"/>
+                        <f:selectItems value="#{urunTipiForm.urunTipleri}" var="tip" itemValue="#{tip}"
+                                       itemLabel="#{tip.urunTipi}"/></p:selectOneMenu>
 
-                        </p:selectOneMenu>
-                    </p:panelGrid>
-                </p:panel>
+                    <h:column></h:column>
+                    <h:commandButton value="Ürün Tipi Ekle" action="formUrunTipi" ajax="true" style="background-color: cyan">
+                        <p:ajax  event="change"
+                        /></h:commandButton>
+                    <br/>
+                    <h:commandButton value="Ürün Tipi Sil" action="#{urunTipiForm.urunTipiSil()}" style="background-color: crimson" />
+
+                </p:panelGrid>
+
+
+
             </h:form>
         </ui:define>
     </ui:composition>

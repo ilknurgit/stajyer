@@ -11,7 +11,9 @@ import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+/**.
+ * Created by iuysal on 05.08.2021
+ */
 @ManagedBean
 public class KullaniciForm implements Serializable {
 

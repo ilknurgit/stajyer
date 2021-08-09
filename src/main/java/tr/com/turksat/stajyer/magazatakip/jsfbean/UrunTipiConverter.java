@@ -1,7 +1,7 @@
 package tr.com.turksat.stajyer.magazatakip.jsfbean;
 
-/**
- * Created by scinkir on 10.07.2015.
+/**.
+ * Created by iuysal on 05.08.2021
  */
 
 

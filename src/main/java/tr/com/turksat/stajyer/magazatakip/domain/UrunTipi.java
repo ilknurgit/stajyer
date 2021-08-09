@@ -1,5 +1,7 @@
 package tr.com.turksat.stajyer.magazatakip.domain;
 
+
+// domain->entity  bilgilerimizin tutulduğu
 public class UrunTipi {
     private String urunTipi;
     private Integer id = -1;

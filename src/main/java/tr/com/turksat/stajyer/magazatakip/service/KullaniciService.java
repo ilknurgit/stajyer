@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by scinkir on 25.06.2015.
+ * * Created by iuysal on 05.08.2021
  */
+//service classları=iş mantıkları
 public class KullaniciService {
     KullaniciDao kullaniciDao;
 
