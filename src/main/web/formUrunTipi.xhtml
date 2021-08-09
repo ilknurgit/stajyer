@@ -8,25 +8,13 @@
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h:form id="form">
-                <p:panel header="Select a Location" style="margin-bottom:10px;">
-                    <p:panelGrid id="grid" columns="2" cellpadding="5">
-                        <p:outputLabel value="ÜRÜN TİPLERİ" for="urunTipi"/>
-                        <p:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" converter="urunTipiConverter">
+                <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5" disabled="true">
+                    <p:outputLabel value="Ürün Tipi" for="urunTip"/>
+                    <h:inputText id="urunTip"/>
+                    <h:column></h:column>
+                    <h:commandButton value="Kaydet" action="#{urunTipiForm.urunTipiEkle()}"/>
+                </p:panelGrid>
 
-                            <f:selectItems value="#{urunTipiForm.urunTipleri}" var="tip" itemValue="#{tip}"
-                                           itemLabel="#{tip.urunTipi}"/>
-
-                        </p:selectOneMenu>
-
-                        <!--Insert new data to DB-->
-                        <h5>Ürün tipi giriniz</h5>
-                        <p:inputText/>
-
-                        <!--Save button-->
-                        <p:button value="Kaydet" styleClass="ui-button-raised" />
-
-                    </p:panelGrid>
-                </p:panel>
             </h:form>
         </ui:define>
     </ui:composition>
