@@ -50,7 +50,7 @@ public class KullaniciForm implements Serializable {
 //        if (service.kullaniciGiris(kullanici)) {
 //            return "anaekran/anaekran";
 //        }
-        return "uruntanimi";
+        return "listeUrunTipi";
     }
 
 
