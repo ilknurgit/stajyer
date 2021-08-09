@@ -38,13 +38,9 @@ public class UrunTipiForm implements Serializable {
 
     public String urunTipiEkle() {
 
-        if (urunTipi.getId() == -1) {
+
          urunTipiService.urunTipiEkle(urunTipi);
-        } else {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipGuncelle(uruntipi);
-        }
-        urunTipi = new UrunTipi();
+
         return "";
     }
 

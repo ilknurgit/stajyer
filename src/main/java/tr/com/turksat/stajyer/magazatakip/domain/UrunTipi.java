@@ -4,7 +4,7 @@ package tr.com.turksat.stajyer.magazatakip.domain;
 // domain->entity  bilgilerimizin tutulduğu
 public class UrunTipi {
     private String urunTipi;
-    private Integer id = -1;
+    private String id;
 
     public UrunTipi() {
     }
@@ -17,13 +17,11 @@ public class UrunTipi {
         this.urunTipi = urunTipi;
     }
 
-    public Integer getId() {return id;}
-    public void setId(Integer id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
-
-
-
-
+    public void setId(String id) {
+        this.id = id;
+    }
 }
