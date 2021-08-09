@@ -1,10 +1,18 @@
 package tr.com.turksat.stajyer.magazatakip.domain;
 
 
-// domain->entity  bilgilerimizin tutulduğu
-public class UrunTipi {
+import javax.persistence.*;
+import java.io.Serializable;
+
+// domain->entity  bilgilerimizin tutulduğu katman
+public class UrunTipi implements Serializable {
+
+    @Column (name="type",length=50)
     private String urunTipi;
-    private Integer id = -1;
+
+    @Id
+    @Column(length = 64, unique = true, nullable = false)
+    private String id ;
 
     public UrunTipi() {
     }
@@ -17,13 +25,11 @@ public class UrunTipi {
         this.urunTipi = urunTipi;
     }
 
-    public Integer getId() {return id;}
-    public void setId(Integer id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
-
-
-
-
+    public void setId(String id) {
+        this.id = id;
+    }
 }

@@ -37,15 +37,14 @@ public class UrunTipiForm implements Serializable {
     }
 
     public String urunTipiEkle() {
-
-        if (urunTipi.getId() == -1) {
-         urunTipiService.urunTipiEkle(urunTipi);
-        } else {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipGuncelle(uruntipi);
+        urunTipi=new UrunTipi();
+        urunTipiService.urunTipiEkle(urunTipi);
+        if(urunTipi==null){
+           return "Ürün Tipi eklenemedi.";
         }
-        urunTipi = new UrunTipi();
-        return "";
+        else {
+            return "Ürün Tipi başarıyla eklendi.";
+        }
     }
 
 

@@ -19,7 +19,7 @@ public class UrunTipiDao {
     Connection con=null;//Veri tabanına bağlantı yapmamızı sağlayacak nesne.
 
     String urunTipiType;
-    Integer id;
+    String id;
     int i=0;
     String errorMessage;
 
@@ -37,9 +37,9 @@ public class UrunTipiDao {
             {
                 UrunTipi urunTipi = new UrunTipi();//SQL Sorgusundan sütunları çekip bu değişkenin içinde type veya id kısmına atıyacağız.
 
-                Long id  = rs.getLong("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
+                String id  = rs.getString("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
                 String name = rs.getString("type");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
-                urunTipi.setId(Integer.valueOf(id!=null?id.toString():"null"));
+                urunTipi.setId(id!=null?id.toString():"null");
                 urunTipi.setUrunTipi(name);
                 uruntipiList.add(urunTipi);//Her bir dönen sonucu listeye ekliyoruz.
 
@@ -70,9 +70,8 @@ public class UrunTipiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            //String sql = "INSERT INTO yazarlar(Adı,Alanı) VALUES(?,?)";//Yazarlar tablosunun Adı ve Alanı sütununa değer göndereceğimi söylüyoruz.
             ps=con.prepareStatement("INSERT INTO stajyer.urun_tipi(id, type) VALUES(?,?)");//ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
-            ps.setInt(1, id);//ps nesnesine gelen id alanını koyduk.
+            ps.setString(1, id);//ps nesnesine gelen id alanını koyduk.
             ps.setString(2, urunTipiType);//ps nesnesine gelen alanı koyduk.
             i=ps.executeUpdate();//executeUpdate verilen sorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
@@ -109,11 +108,11 @@ public class UrunTipiDao {
     //ürünTiplerini silmemeize yarayan dao methodu
     public boolean urunTipiSil(UrunTipi silinecekUrunTipi){
         FacesContext fc = FacesContext.getCurrentInstance();
-        this.id = Integer.parseInt(String.valueOf(silinecekUrunTipi.getId()));
+        this.id = String.valueOf(silinecekUrunTipi.getId());
         try {
             con = Database.getInstance().getConnection();
             ps=con.prepareStatement("DELETE FROM stajyer.urun_tipi WHERE id=?");
-            ps.setInt(1, silinecekUrunTipi.getId());
+            ps.setInt(1, Integer.parseInt(silinecekUrunTipi.getId()));
             i=ps.executeUpdate();
         }
         catch(Exception exception)
@@ -151,11 +150,11 @@ public class UrunTipiDao {
         this.urunTipiType = urunTipiType;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
