@@ -18,8 +18,8 @@ public class UrunTipiDao {
     PreparedStatement ps=null;//SQL sorgumuzu tutacak ve çalıştıracak nesne.
     Connection con=null;//Veri tabanına bağlantı yapmamızı sağlayacak nesne.
 
-    String urunTipiType;
-    String id;
+    String urunTipiType="";
+    String id="";
     int i=0;
     String errorMessage;
 
@@ -71,8 +71,8 @@ public class UrunTipiDao {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
             ps=con.prepareStatement("INSERT INTO stajyer.urun_tipi(id, type) VALUES(?,?)");//ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
-            ps.setString(1, id);//ps nesnesine gelen id alanını koyduk.
-            ps.setString(2, urunTipiType);//ps nesnesine gelen alanı koyduk.
+            ps.setString(1, getId());//ps nesnesine gelen id alanını koyduk.
+            ps.setString(2, getUrunTipiType());//ps nesnesine gelen alanı koyduk.
             i=ps.executeUpdate();//executeUpdate verilen sorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }
@@ -137,9 +137,6 @@ public class UrunTipiDao {
         else
             return false;
     }
-
-
-
 
 
     public String getUrunTipiType() {
