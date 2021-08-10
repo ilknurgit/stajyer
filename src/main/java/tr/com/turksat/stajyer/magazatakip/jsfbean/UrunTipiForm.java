@@ -39,7 +39,8 @@ public class UrunTipiForm implements Serializable {
     public String urunTipiEkle() {
 
         urunTipiService.urunTipiEkle(urunTipi);
-        return "başarılı";
+      return "formUrunTipi";
+
     }
 //f8 ile ilerletebilir misin
     //daha fazla ilerlemiyor xd f9 o zaman - ona da basıyorum
