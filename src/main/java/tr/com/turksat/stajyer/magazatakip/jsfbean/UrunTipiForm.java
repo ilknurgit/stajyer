@@ -37,16 +37,12 @@ public class UrunTipiForm implements Serializable {
     }
 
     public String urunTipiEkle() {
-        urunTipi=new UrunTipi();
-        urunTipiService.urunTipiEkle(urunTipi);
-        if(urunTipi==null){
-           return "Ürün Tipi eklenemedi.";
-        }
-        else {
-            return "Ürün Tipi başarıyla eklendi.";
-        }
-    }
 
+        urunTipiService.urunTipiEkle(urunTipi);
+        return "başarılı";
+    }
+//f8 ile ilerletebilir misin
+    //daha fazla ilerlemiyor xd f9 o zaman - ona da basıyorum
 
     public String urunTipiSil() {
         urunTipiService.urunTipiSil(urunTipi);

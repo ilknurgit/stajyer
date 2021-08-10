@@ -17,14 +17,20 @@
 
 
                     <h:column></h:column>
-                    <h:commandButton value="Ürün Tipi Ekle" action="formUrunTipi" ajax="true" style="background-color: cyan">
-                        <p:ajax  event="change"
+                    <h:commandButton value="Ürün Tipi Ekle" style="background-color: cyan">
+                        <p:ajax event="change" update="urunTipiForm"/>
                         /></h:commandButton>
                     <br/>
-                    <h:commandButton value="Ürün Tipi Sil" action="#{urunTipiForm.urunTipiSil()}" style="background-color: crimson" />
+                    <h:commandButton value="Ürün Tipi Sil" action="#{urunTipiForm.urunTipiSil()}"
+                                     style="background-color: crimson"/>
 
+                    <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5">
+                        <p:outputLabel value="Ürün Tipi" for="urunTip"/>
+                        <h:inputText id="urunTip" value="#{urunTipiForm.urunTipi.urunTipi}"/>
+                        <h:column></h:column>
+                        <h:commandButton value="Kaydet" action="#{urunTipiForm.urunTipiEkle()}"/>
+                    </p:panelGrid>
                 </p:panelGrid>
-
 
 
             </h:form>
