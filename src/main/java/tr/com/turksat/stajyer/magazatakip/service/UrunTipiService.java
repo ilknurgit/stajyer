@@ -23,7 +23,7 @@ public class UrunTipiService {
     }
 
     public String urunTipiEkle(UrunTipi urunTipi) {
-        return urunTipiDao.urunTipiEkle();
+        return urunTipiDao.urunTipiEkle(urunTipi);
     }
     public boolean urunTipiSil(UrunTipi urunTipi) {
         return urunTipiDao.urunTipiSil(urunTipi);

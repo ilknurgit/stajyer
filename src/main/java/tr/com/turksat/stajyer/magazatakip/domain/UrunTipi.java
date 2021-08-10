@@ -10,9 +10,8 @@ public class UrunTipi implements Serializable {
     @Column (name="type",length=50)
     private String urunTipi;
 
-    @Id
-    @Column(length = 64, unique = true, nullable = false)
-    private String id ;
+
+    private String id="" ;
 
     public UrunTipi() {
     }
