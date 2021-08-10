@@ -60,7 +60,7 @@ public class UrunTipiForm implements Serializable {
     }
 
     public List<UrunTipi> getUrunTipleri() {
-        return urunTipleri;
+        return  urunTipiService.getUrunTipleri();
     }
 
     public void setUrunTipleri(List<UrunTipi> urunTipleri) {
