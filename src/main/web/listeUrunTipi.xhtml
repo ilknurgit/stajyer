@@ -17,12 +17,27 @@
 
 
                     <h:column></h:column>
-                    <h:commandButton value="Ürün Tipi Ekle" action="#{urunTipiForm.navigate()}" style="background-color: cyan"></h:commandButton>
+                    <h:commandButton value="Ürün Tipi Ekle" style="background-color: cyan">
+                    <f:ajax render="urunTipiForm" listener="#{urunTipiForm.response}" />
+                    </h:commandButton>
                     <br/>
                     <h:commandButton value="Ürün Tipi Sil" action="#{urunTipiForm.urunTipiSil()}"
                                      style="background-color: crimson"/>
 
+
+
+                    <h:panelGroup id="urunTipiForm">
+                    <h:panelGroup layout="block" rendered="#{urunTipiForm.responseRendered}" >
+                        <p:outputLabel value="Ürün Tipi" for="urunTip"/>
+                        <h:inputText id="urunTip" value="#{urunTipiForm.urunTipi.urunTipi}" />
+                        <h:column></h:column>
+                        <h:commandButton value="Kaydet" action="#{urunTipiForm.urunTipiEkle()}" />
+                    </h:panelGroup>
+                    </h:panelGroup>
                 </p:panelGrid>
+
+
+
 
 
             </h:form>
