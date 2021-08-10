@@ -7,6 +7,7 @@ import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 //Controller classlarımız
 public class UrunTipiForm implements Serializable {
 
