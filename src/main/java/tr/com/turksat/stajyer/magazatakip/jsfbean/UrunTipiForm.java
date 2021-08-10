@@ -23,7 +23,6 @@ public class UrunTipiForm implements Serializable {
     List<UrunTipi> urunTipleri = new ArrayList();
     private UrunTipi urunTipi;
     private String urunTipiId="";
-    private boolean responseRendered ;
 
     public UrunTipiForm() {
 
@@ -37,22 +36,9 @@ public class UrunTipiForm implements Serializable {
 
     }
 
-    public void response(){
-        responseRendered=true;
-    }
-
-    public boolean isResponseRendered() {
-        return responseRendered;
-    }
-
-    public void setResponseRendered(boolean responseRendered) {
-        this.responseRendered = responseRendered;
-    }
-
-
     public String urunTipiEkle() {
         urunTipiService.urunTipiEkle(urunTipi);
-         return "listeUrunTipi";
+         return "formUrunTipi";
 
     }
 
