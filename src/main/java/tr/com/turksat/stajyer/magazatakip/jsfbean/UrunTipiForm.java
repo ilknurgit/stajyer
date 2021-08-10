@@ -35,19 +35,19 @@ public class UrunTipiForm implements Serializable {
         urunTipleri=urunTipiService.getUrunTipleri();
 
     }
-
+ public String navigate(){
+        return "formUrunTipi";
+ }
     public String urunTipiEkle() {
-
         urunTipiService.urunTipiEkle(urunTipi);
-      return "formUrunTipi";
+         return "listeUrunTipi";
 
     }
-//f8 ile ilerletebilir misin
-    //daha fazla ilerlemiyor xd f9 o zaman - ona da basıyorum
+
 
     public String urunTipiSil() {
         urunTipiService.urunTipiSil(urunTipi);
-        return "";
+        return "listeUrunTipi";
     }
 
     public void urunTipiTemizle() {
