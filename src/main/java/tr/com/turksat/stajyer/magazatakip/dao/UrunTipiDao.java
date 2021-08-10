@@ -22,7 +22,6 @@ public class UrunTipiDao {
     int i=0;
     String errorMessage;
 
-
     //ürün tiplerini listemeye yarayan veritabanından ürünleri çeken dao methodu
     public List<UrunTipi> getUrunTipleri() {
         try {
