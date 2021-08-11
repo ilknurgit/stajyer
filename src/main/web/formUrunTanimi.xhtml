@@ -8,11 +8,18 @@
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h:form id="form">
-                <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5" >
-                    <p:outputLabel value="Ürün Tipi" for="urunTip"/>
-                    <h:inputText id="urunTip" value="#{urunTipiForm.urunTipi.urunTipi}" />
+                <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunMarka" value="#{urunTanimiForm.urunTanimi.urunMarka}" />
+
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+
                     <h:column></h:column>
-                    <h:commandButton value="Kaydet" action="#{urunTipiForm.urunTipiEkle()}" />
+                    <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />
                 </p:panelGrid>
 
 
