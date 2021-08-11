@@ -8,13 +8,16 @@
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h:form id="form">
-                <p:panel header="Select a Location" style="margin-bottom:10px;">
-                    <p:panelGrid id="grid" columns="2" cellpadding="5">
+                <p:panelGrid id="grid" columns="2" cellpadding="5">
+                    <p:outputLabel value="Ürün Tanimlari" for="urunTanimi"/>
+                    <p:selectOneMenu id="urunTanimi" value="#{urunTanimiForm.urunTanimi}" converter="urunTanimiConverter">
 
+                        <f:selectItems value="#{urunTanimiForm.urunTanimlari}" var="tip" itemValue="#{tip}"
+                                       itemLabel="#{tip.urunTanimi}"/></p:selectOneMenu>
 
+                    <h:column></h:column>
 
-                    </p:panelGrid>
-                </p:panel>
+                </p:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

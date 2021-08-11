@@ -42,7 +42,6 @@ public class UrunTipiForm implements Serializable {
     public String urunTipiEkle() {
         urunTipiService.urunTipiEkle(urunTipi);
          return "formUrunTipi";
-
     }
 
     public String urunTipiSil() {

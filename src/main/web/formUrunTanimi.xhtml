@@ -2,11 +2,42 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Title</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-</body>
+<head>
+    <title></title>
+</head>
+<h:body>
+    <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
+        <ui:define name="content">
+            <h:form id="form">
+                <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5" >
+                    <p:outputLabel value="Ürün Markasi/Tanimi" for="urunTanimi"/>
+                    <h:inputText id="urunTanimi" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+
+                    <p:outputLabel value="Ürün Modeli" for="urunTanimi"/>
+                    <h:inputText id="urunModel" value="#{urunTanimiForm.urunTanimi.urunModel}" />
+
+                    <p:outputLabel value="Ürün Rengi" for="urunTanimi"/>
+                    <h:inputText id="urunRengi" value="#{urunTanimiForm.urunTanimi.urunRenk}" />
+
+                    <p:outputLabel value="Ürün Boyutları" for="urunBoyutlari"/>
+                    <h:inputText id="urunBoyutlari" value="#{urunTanimiForm.urunTanimi}" />
+
+                    <p:outputLabel value="Ürün Ağırlığı" for="urunAgirligi"/>
+                    <h:inputText id="urunAgirligi" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
+                    <h:column></h:column>
+
+
+
+                    <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />
+                </p:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>
