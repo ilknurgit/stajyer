@@ -31,19 +31,12 @@ public class UrunTipiConverter implements Converter {
             return null;
         }
     }
-    //test
-    public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-        if (object == null || object.equals("")) {
-            return "";
-        } else {
-            if(object instanceof String)
-                return (String) object;
-            if(object instanceof Integer)
-                return String.valueOf(object);
-            if (object != null) {
-                return String.valueOf(((UrunTipi) object).getId());
-            }
-        }
-        return "-1";
+    @Override
+    public String getAsString(FacesContext context, UIComponent component, Object value)
+    {
+        UrunTipi urunTipi = (UrunTipi) value;
+    return urunTipi.getUrunTipi() != null ? String.valueOf(urunTipi.getId()) : null;
     }
+    //test
+
 }
