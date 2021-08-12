@@ -10,10 +10,10 @@
             <h:form id="form">
                 <p:panelGrid id="grid" columns="2" cellpadding="5">
                     <p:outputLabel value="Ürün Tipleri" for="urunTipi"/>
-                    <h:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" >
+                    <p:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" converter="#{urunTipiConverter}">
 
                         <f:selectItems value="#{urunTipiForm.urunTipleri}" var="tip" itemValue="#{tip}"
-                                       itemLabel="#{tip.urunTipi}"/></h:selectOneMenu>
+                                       itemLabel="#{tip.urunTipi}"/></p:selectOneMenu>
 
                     <h:column></h:column>
 
