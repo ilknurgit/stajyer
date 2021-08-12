@@ -11,19 +11,15 @@ import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+/**.
+ * Created by iuysal on 05.08.2021
+ */
 @ManagedBean
 public class KullaniciForm implements Serializable {
 
     KullaniciService kullaniciService = new KullaniciService();
-    UrunTipiService urunTipiService = new UrunTipiService();
-    List<UrunTipi> urunTipleri = new ArrayList();
     List<Kullanici> kullanicilar = new ArrayList<>();
     private Kullanici kullanici;
-    private String silinecekUrunTipi = "";
-    private String urunTipiid = "";
-    private UrunTipi uruntipi;
-
 
     public KullaniciForm() {
 
@@ -47,35 +43,6 @@ public class KullaniciForm implements Serializable {
     }
 
 
-    //URUN TİP SET VE GET
-    public UrunTipi getUruntipi() {
-        return uruntipi;
-    }
-
-    public void setUruntipi(UrunTipi uruntipi) {
-        this.uruntipi = uruntipi;
-    }
-
-
-    //SİLİNECEK URUNUNTİPİNİN SET VE GET
-    public String getSilinecekUrunTipi() {
-        return silinecekUrunTipi;
-    }
-
-    public void setSilinecekUrunTipi(String silinecekUrunTipi) {
-        this.silinecekUrunTipi = silinecekUrunTipi;
-    }
-
-
-    //URUN TİPİ IDSİ SET VE GET
-    public String getId() {
-        return urunTipiid;
-    }
-
-    public void setId(String id) {
-        this.urunTipiid = id;
-    }
-
 
     //GİRİŞ YAP
     public String kullaniciGiris() {
@@ -83,20 +50,10 @@ public class KullaniciForm implements Serializable {
 //        if (service.kullaniciGiris(kullanici)) {
 //            return "anaekran/anaekran";
 //        }
-        return "uruntanimi";
+        return "listeUrunTipi";
     }
 
-    public String urunTipiEkle() {
-        if (uruntipi.getId() == -1) {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipEkle(uruntipi);
-        } else {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipGuncelle(uruntipi);
-        }
-        uruntipi = new UrunTipi();
-        return null;
-    }
+
 
     public String kullaniciKaydet() {
         KullaniciService service = new KullaniciService();
@@ -104,42 +61,7 @@ public class KullaniciForm implements Serializable {
         return null;
     }
 
-    public String sil() {
-        System.out.println("urunTipi" + silinecekUrunTipi);
-        KullaniciService service = new KullaniciService();
-//        service.urunTipiSil(silinecekUrunTipi);
-        return null;
-    }
 
-    public void urunTipiTemizle() {
-        this.uruntipi = null;
-    }
-
-    public String guncelle() {
-        System.out.println("urunTipi" + silinecekUrunTipi);
-        KullaniciService service = new KullaniciService();
-//        uruntipi = service.getUrunTipi(urunTipiid);
-        return null;
-    }
-
-    public List<UrunTipi> getUrunTipleri() {
-        return urunTipleri;
-    }
-
-    public void setUrunTipleri(List<UrunTipi> urunTipleri) {
-        this.urunTipleri = urunTipleri;
-    }
-
-    public void filtreMarka() {
-        if (uruntipi != null && uruntipi.getId() != -1) ;
-//            markalar=new KullaniciService().getMarkalar(uruntipi);
-    }
-
-    public void filtreMarka2(AjaxBehaviorEvent event) {
-        if (uruntipi != null) ;
-//            markalar=new KullaniciService().getMarkalar(uruntipi);
-
-    }
 
     public List<Kullanici> getKullanicilar() {
         return kullanicilar;

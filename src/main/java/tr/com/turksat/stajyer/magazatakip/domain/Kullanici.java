@@ -1,5 +1,7 @@
 package tr.com.turksat.stajyer.magazatakip.domain;
-
+/**.
+ * Created by iuysal on 05.08.2021
+ */
 public class Kullanici
 {
     private String kullaniciAdi;

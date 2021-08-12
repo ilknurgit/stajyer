@@ -1,8 +1,20 @@
 package tr.com.turksat.stajyer.magazatakip.domain;
 
-public class UrunTipi {
+
+import javax.annotation.Generated;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+// domain->entity  bilgilerimizin tutulduğu katman
+
+public class UrunTipi implements Serializable {
+
+    @Column(name = "type", length = 50)
     private String urunTipi;
-    private Integer id = -1;
+
+    @Column(name = "id",columnDefinition = "serial")
+    private int id;
 
     public UrunTipi() {
     }
@@ -15,14 +27,11 @@ public class UrunTipi {
         this.urunTipi = urunTipi;
     }
 
-    public Integer getId() {return id;}
-    public void setId(Integer id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
-
-
-
-
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }

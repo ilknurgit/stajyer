@@ -4,20 +4,17 @@
     <h:form id="menuForm">
         <p:growl id="messages" autoUpdate="true"/>
         <p:accordionPanel multiple="true" speed="0.1"  activeIndex="0">
-            <p:tab title="Örnek Menü 1">
+            <p:tab title="Mağaza Takip">
                 <p:menu>
                     <p:menuitem value="Giris" action="giris" ajax="false"/>
-                    <p:menuitem value="Users" action="kullaniciListesi" ajax="false"/>
-                    <p:menuitem value="Ürün Tipi" action="formUrunTipi" ajax="false"/>
+                    <p:menuitem value="Kullanıcılar" action="kullaniciListesi" ajax="false"/>
+                    <p:menuitem value="Ürün Tipi Ekle" action="formUrunTipi" ajax="false"/>
+                    <p:menuitem value="Ürün Tipi Listele" action="listeUrunTipi" ajax="false"/>
+                    <p:menuitem value="Ürün Tanımı Ekle" action="formUrunTanimi" ajax="false"/>
                 </p:menu>
             </p:tab>
 
-            <p:tab title="Örnek Menü 2">
-                <p:menu>
-                    <p:menuitem value="Giris" action="giris" ajax="false"/>
-                    <p:menuitem value="KullaniciListesi" action="kullaniciListesi" ajax="false"/>
-                </p:menu>
-            </p:tab>
+
 
         </p:accordionPanel>
     </h:form>

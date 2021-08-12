@@ -6,6 +6,8 @@ import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +18,20 @@ import java.util.List;
  */
 
 @ManagedBean
+@SessionScoped
+//Controller classlarımız
 public class UrunTipiForm implements Serializable {
 
     UrunTipiService urunTipiService = new UrunTipiService();
     List<UrunTipi> urunTipleri = new ArrayList();
-    private String silinecekUrunTipi = "";
-    private String urunTipiid = "";
     private UrunTipi urunTipi;
+    private String urunTipiId="";
 
     public UrunTipiForm() {
 
     }
 
+    //bu method sayfa ilk geldiği anda görüntülemeyi sağlar.
     @PostConstruct
     public void init() {
         urunTipi = new UrunTipi();
@@ -35,54 +39,15 @@ public class UrunTipiForm implements Serializable {
 
     }
 
-
-    public UrunTipi getUrunTipi() {
-        return urunTipi;
-    }
- 
-    public void setUrunTipi(UrunTipi urunTipi) {
-        this.urunTipi = urunTipi;
-    }
-
-    //SİLİNECEK URUNUNTİPİNİN SET VE GET
-    public String getSilinecekUrunTipi() {
-        return silinecekUrunTipi;
-    }
-
-    public void setSilinecekUrunTipi(String silinecekUrunTipi) {
-        this.silinecekUrunTipi = silinecekUrunTipi;
-    }
-
-
-    //URUN TİPİ IDSİ SET VE GET
-    public String getId() {
-        return urunTipiid;
-    }
-
-    public void setId(String id) {
-        this.urunTipiid = id;
-    }
-
-
-
     public String urunTipiEkle() {
-        if (urunTipi.getId() == -1) {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipEkle(uruntipi);
-        } else {
-            KullaniciService service = new KullaniciService();
-//            service.UruntipGuncelle(uruntipi);
-        }
-        urunTipi = new UrunTipi();
-        return null;
+        urunTipiService.urunTipiEkle(urunTipi);
+         return "formUrunTipi";
+
     }
 
-
-    public String sil() {
-        System.out.println("urunTipi" + silinecekUrunTipi);
-        KullaniciService service = new KullaniciService();
-//        service.urunTipiSil(silinecekUrunTipi);
-        return null;
+    public String urunTipiSil() {
+        urunTipiService.urunTipiSil(urunTipi);
+        return "listeUrunTipi";
     }
 
     public void urunTipiTemizle() {
@@ -90,17 +55,32 @@ public class UrunTipiForm implements Serializable {
     }
 
     public String guncelle() {
-        System.out.println("urunTipi" + silinecekUrunTipi);
-        KullaniciService service = new KullaniciService();
 //        uruntipi = service.getUrunTipi(urunTipiid);
         return null;
     }
 
     public List<UrunTipi> getUrunTipleri() {
-        return urunTipleri;
+        return  urunTipiService.getUrunTipleri();
     }
 
     public void setUrunTipleri(List<UrunTipi> urunTipleri) {
         this.urunTipleri = urunTipleri;
+    }
+
+
+    public UrunTipi getUrunTipi() {
+        return urunTipi;
+    }
+
+    public void setUrunTipi(UrunTipi urunTipi) {
+        this.urunTipi = urunTipi;
+    }
+
+    public String getUrunTipiId() {
+        return urunTipiId;
+    }
+
+    public void setUrunTipiId(String urunTipiId) {
+        this.urunTipiId = urunTipiId;
     }
 }

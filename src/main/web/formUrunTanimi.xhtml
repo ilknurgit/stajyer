@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
+        <ui:define name="content">
+            <h:form id="form">
+                <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunMarka" value="#{urunTanimiForm.urunTanimi.urunMarka}" />
+
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+
+                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+
+                    <h:column></h:column>
+                    <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />
+                </p:panelGrid>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

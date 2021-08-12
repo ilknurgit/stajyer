@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Properties;
 
 /**
- * Created by scinkir on 25.06.2015.
+ * Created by iuysal on 05.08.2021
  */
 public class Database {
 
@@ -19,11 +19,12 @@ public class Database {
 
     public  Connection getConnection() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver"); //Hangi türde bir veri tabanını kullanacağını bildiriyoruz.
             HashMap<String, String> dbBilgileri = getDbBilgileri();
 
             Connection con = DriverManager.getConnection(dbBilgileri.get("url"),
                     dbBilgileri.get("user"), dbBilgileri.get("password"));
+            //project-config.properties dosyasındaki user ve password bilgisi alıyor.
             return con;
         } catch (Exception ex) {
             System.out.println("Database.getConnection() HATASI" + ex.getMessage());

@@ -9,8 +9,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by scinkir on 25.06.2015.
+/**.
+ * Created by iuysal on 05.08.2021
  */
 public class KullaniciDao {
 
@@ -49,7 +49,7 @@ public class KullaniciDao {
 
             con = Database.getInstance().getConnection();
             ps = con.prepareStatement(
-                    "select id, kullanici_adi from stajyer.tb_kullanici ");
+                    "select * from stajyer.tb_kullanici ");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) // found
             {
