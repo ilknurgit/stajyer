@@ -62,16 +62,13 @@ public class UrunTipiForm implements Serializable {
     public List<UrunTipi> getUrunTipleri() {
         return  urunTipiService.getUrunTipleri();
     }
-
     public void setUrunTipleri(List<UrunTipi> urunTipleri) {
         this.urunTipleri = urunTipleri;
     }
 
-
     public UrunTipi getUrunTipi() {
         return urunTipi;
     }
-
     public void setUrunTipi(UrunTipi urunTipi) {
         this.urunTipi = urunTipi;
     }
@@ -79,7 +76,6 @@ public class UrunTipiForm implements Serializable {
     public String getUrunTipiId() {
         return urunTipiId;
     }
-
     public void setUrunTipiId(String urunTipiId) {
         this.urunTipiId = urunTipiId;
     }

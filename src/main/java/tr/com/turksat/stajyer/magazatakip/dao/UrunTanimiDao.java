@@ -38,8 +38,16 @@ public class UrunTanimiDao {
 
                 Integer id  = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
                 String marka = rs.getString("marka");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
+                String model = rs.getString("model");
+                String renk = rs.getString("renk");
+                String boyut = rs.getString("boyut");
+                String agirlik = rs.getString("agirlik");
                 urunTanimi.setId(Integer.valueOf(id!=null?id.toString():"null"));
-                urunTanimi.setUrunTanimi(marka);
+                urunTanimi.setUrunMarka(marka);
+                urunTanimi.setUrunModel(model);
+                urunTanimi.setUrunRenk(renk);
+                urunTanimi.setUrunBoyut(boyut);
+                urunTanimi.setUrunAgirlik(agirlik);
                 urunTanimiList.add(urunTanimi);//Her bir dönen sonucu listeye ekliyoruz.
 
             }
@@ -69,10 +77,14 @@ public class UrunTanimiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(type) VALUES(?)");
+            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(urun_tipi_id,marka,model,renk,boyut,agirlik) VALUES(?,?,?,?,?,?)");
             //ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
             // --id alanını eklemedik çünkü zaten otomatik set olacak.
-            ps.setString(1, urunTanimi.getUrunMarkasi());//ps nesnesine gelen alanı koyduk.
+            ps.setString(1, urunTanimi.getUrunMarka());//ps nesnesine gelen alanı koyduk.
+            ps.setString(2, urunTanimi.getUrunModel());//ps nesnesine gelen alanı koyduk.
+            ps.setString(3, urunTanimi.getUrunRenk());//ps nesnesine gelen alanı koyduk.
+            ps.setString(4, urunTanimi.getUrunBoyut());//ps nesnesine gelen alanı koyduk.
+            ps.setString(5, urunTanimi.getUrunAgirlik());//ps nesnesine gelen alanı koyduk.
             i=ps.executeUpdate();//executeUpdate verilen sorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }

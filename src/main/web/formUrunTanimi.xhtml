@@ -9,14 +9,20 @@
         <ui:define name="content">
             <h:form id="form">
                 <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
-                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
+                    <p:outputLabel value="Ürünün Markası" for="urunTanim"/>
                     <h:inputText id="urunMarka" value="#{urunTanimiForm.urunTanimi.urunMarka}" />
 
-                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
-                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+                    <p:outputLabel value="Ürünün Modeli" for="urunTanim"/>
+                    <h:inputText id="urunModel" value="#{urunTanimiForm.urunTanimi.urunModel}" />
 
-                    <p:outputLabel value="Ürün Tanimi" for="urunTanim"/>
-                    <h:inputText id="urunTanim" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+                    <p:outputLabel value="Ürünün Rengi" for="urunTanim"/>
+                    <h:inputText id="urunRenk" value="#{urunTanimiForm.urunTanimi.urunRenk}" />
+
+                    <p:outputLabel value="Ürünün Boyutu" for="urunTanim"/>
+                    <h:inputText id="urunBoyut" value="#{urunTanimiForm.urunTanimi.urunBoyut}" />
+
+                    <p:outputLabel value="Ürünün Modeli" for="urunTanim"/>
+                    <h:inputText id="urunAgirlik" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
 
                     <h:column></h:column>
                     <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />

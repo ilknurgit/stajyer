@@ -13,16 +13,20 @@ public class UrunTanimi implements Serializable {
     @Column(name = "id",columnDefinition = "serial")
     private int id;
 
-
-    @ManyToOne
-
-    private UrunTipi urunTipi;
-
     @Column(name = "marka", length = 50)
-    private String urunMarkasi;
+    private String urunMarka;
 
     @Column(name = "model", length = 50)
-    private String urunModeli;
+    private String urunModel;
+
+    @Column(name = "renk", length = 50)
+    private String urunRenk;
+
+    @Column(name = "boyut", length = 50)
+    private String urunBoyut;
+
+    @Column(name = "agirlik", length = 50)
+    private String urunAgirlik;
 
 
 
@@ -36,26 +40,38 @@ public class UrunTanimi implements Serializable {
         this.id = id;
     }
 
-    public String getUrunTanimi() {
-        return urunTanimi;
+    public String getUrunMarka() {
+        return urunMarka;
     }
-    public void setUrunTanimi(String urunTanimi) {
-        this.urunTanimi = urunTanimi;
-    }
-
-    public String getUrunMarkasi() {
-        return urunMarkasi;
-    }
-    public void setUrunMarkasi(String urunMarkasi) {
-        this.urunMarkasi = urunMarkasi;
+    public void setUrunMarka(String urunMarka) {
+        this.urunMarka = urunMarka;
     }
 
-    public String getUrunModeli() {
-        return urunModeli;
+    public String getUrunModel() {
+        return urunModel;
     }
-    public void setUrunModeli(String urunModeli) {
-        this.urunModeli = urunModeli;
+    public void setUrunModel(String urunModel) {
+        this.urunModel = urunModel;
     }
 
+    public String getUrunRenk() {
+        return urunRenk;
+    }
+    public void setUrunRenk(String urunRenk) {
+        this.urunRenk = urunRenk;
+    }
 
+    public String getUrunBoyut() {
+        return urunBoyut;
+    }
+    public void setUrunBoyut(String urunBoyut) {
+        this.urunBoyut = urunBoyut;
+    }
+
+    public String getUrunAgirlik() {
+        return urunAgirlik;
+    }
+    public void setUrunAgirlik(String urunAgirlik) {
+        this.urunAgirlik = urunAgirlik;
+    }
 }
