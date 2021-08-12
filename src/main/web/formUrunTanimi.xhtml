@@ -16,8 +16,13 @@
         <ui:define name="content">
             <h:form id="form">
                 <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5" >
+                    <p:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" converter="urunTipiConverter">
+
+                        <f:selectItems value="#{urunTipiForm.urunTipleri}" var="tip" itemValue="#{tip}"
+                                       itemLabel="#{tip.urunTipi}"/></p:selectOneMenu>
+
                     <p:outputLabel value="Ürün Markasi/Tanimi" for="urunTanimi"/>
-                    <h:inputText id="urunTanimi" value="#{urunTanimiForm.urunTanimi.urunTanimi}" />
+                    <h:inputText id="urunTanimi" value="#{urunTanimiForm.urunTanimi.marka}" />
 
                     <p:outputLabel value="Ürün Modeli" for="urunTanimi"/>
                     <h:inputText id="urunModel" value="#{urunTanimiForm.urunTanimi.urunModel}" />
@@ -31,8 +36,6 @@
                     <p:outputLabel value="Ürün Ağırlığı" for="urunAgirligi"/>
                     <h:inputText id="urunAgirligi" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
                     <h:column></h:column>
-
-
 
                     <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />
                 </p:panelGrid>

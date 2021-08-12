@@ -12,16 +12,9 @@ public class UrunTanimi implements Serializable {
 
     @Column(name = "id",columnDefinition = "serial")
     private int id;
-/*
-    @Column(name = "urun_tanimi", columnDefinition = "serial")
-    private String urunTanimi;
-*/
-
-    @Column(name = "urun_tanimi_id", columnDefinition = "serial")
-    private String urunTanimiId;
 
     @Column(name = "marka", length = 50)
-    private String urunTanimi;
+    private String marka;
 
     @Column(name = "model", length = 50)
     private String urunModel;
@@ -38,6 +31,9 @@ public class UrunTanimi implements Serializable {
     @Column(name = "agirlik", length = 50)
     private String urunAgirlik;
 
+
+    private UrunTipi urunTipi;
+
     public int getId() {
         return id;
     }
@@ -45,14 +41,14 @@ public class UrunTanimi implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getUrunTanimiId() {
-        return urunTanimiId;
-    }
-
-    public void setUrunTanimiId(String urunTanimiId) {
-        this.urunTanimiId = urunTanimiId;
-    }
+//
+//    public String getUrunTanimiId() {
+//        return urunTanimiId;
+//    }
+//
+//    public void setUrunTanimiId(String urunTanimiId) {
+//        this.urunTanimiId = urunTanimiId;
+//    }
 
     public String getUrunModel() {
         return urunModel;
@@ -78,11 +74,12 @@ public class UrunTanimi implements Serializable {
         this.urunDate = urunDate;
     }
 
-    public String getUrunTanimi() {
-        return urunTanimi;
+    public String getMarka() {
+        return marka;
     }
 
-    public void setUrunTanimi(String marka) {
+    public void setMarka(String marka) {
+        this.marka = marka;
     }
 
     public String getUrunBoyutlar() {
@@ -101,14 +98,13 @@ public class UrunTanimi implements Serializable {
         this.urunAgirlik = urunAgirlik;
     }
 
-    // public void setUrunTanimi(String name) { }
+    public UrunTipi getUrunTipi() {
+        return urunTipi;
+    }
 
-    // public String getUrunTanimi() { }
+    public void setUrunTipi(UrunTipi urunTipi) {
+        this.urunTipi = urunTipi;
+    }
 
-/*
-    public String getUrunTanimi() {
-        return urunTanimi;
-        }
-*/
 
 }

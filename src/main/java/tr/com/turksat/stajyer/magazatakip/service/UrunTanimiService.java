@@ -19,9 +19,12 @@ public class UrunTanimiService {
     }
 
     public String urunTanimiEkle(UrunTanimi urunTanimi) {
+
         return urunTanimiDao.urunTanimiEkle(urunTanimi);
     }
+
     public boolean urunTanimiSil(UrunTanimi urunTanimi) {
+
         return urunTanimiDao.urunTanimiSil(urunTanimi);
     }
 

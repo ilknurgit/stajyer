@@ -15,7 +15,7 @@ import java.util.List;
 public class UrunTipiService {
     UrunTipiDao urunTipiDao;
     public UrunTipiService() {
-        urunTipiDao=new UrunTipiDao();
+        urunTipiDao = new UrunTipiDao();
     }
 
     public List<UrunTipi> getUrunTipleri() {

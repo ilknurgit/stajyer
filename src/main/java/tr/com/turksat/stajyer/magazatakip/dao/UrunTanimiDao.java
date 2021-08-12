@@ -1,12 +1,10 @@
 package tr.com.turksat.stajyer.magazatakip.dao;
 
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
+import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 
 import javax.faces.context.FacesContext;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +37,12 @@ public class UrunTanimiDao {
                 String boyutlar = rs.getString("boyutlar");
                 String agirlik = rs.getString("agirlik");
                 urunTanimi.setId(Integer.valueOf(id!=null?id.toString():"null"));
-                urunTanimi.setUrunTanimi(marka);
+                urunTanimi.setMarka(marka);
+                urunTanimi.setUrunModel(model);
+                urunTanimi.setUrunRenk(renk);
+                urunTanimi.setUrunBoyutlar(boyutlar);
+                urunTanimi.setUrunAgirlik(agirlik);
+
 
                 uruntanimiList.add(urunTanimi);//Her bir dönen sonucu listeye ekliyoruz.
 
@@ -70,11 +73,17 @@ public class UrunTanimiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk, uretim_tarihi, boyutlar, agirlik) VALUES(?, ?, ?, ?, ?, ?)");
+            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk, uretim_tarihi, boyutlar, agirlik,urun_tipi_id) VALUES(?, ?, ?, ?, ?, ?,?)");
             //ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
             // --ürün tanimi id ve ürün tiği id alanlarını eklemedik çünkü zaten otomatik set olacak.
-            ps.setString(1, urunTanimi.getUrunTanimi());//ps nesnesine gelen alanı koyduk.
-            i=ps.executeUpdate();//executeUpdate verilen sorguyu çalıştırır ve integer değer döndürür.
+            ps.setString(1, urunTanimi.getUrunModel());
+            ps.setString(2, urunTanimi.getMarka());
+            ps.setString(3, urunTanimi.getUrunRenk());
+            ps.setDate(4, (Date) urunTanimi.getUrunDate());
+            ps.setString(5,  urunTanimi.getUrunBoyutlar());
+            ps.setString(6,  urunTanimi.getUrunAgirlik());
+            ps.setInt(7,  urunTanimi.getUrunTipi().getId());//ps nesnesine gelen alanı koyduk.
+            i=ps.executeUpdate();//executeUpdate verilen Usorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }
         catch(Exception exception)//Hata olduğunda konsola verilecek.
