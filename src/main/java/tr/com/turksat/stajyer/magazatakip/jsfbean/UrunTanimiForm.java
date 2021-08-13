@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class UrunTanimiForm implements Serializable {
     private UrunTanimi urunTanimi;
     private String urunTanimiId="";
     List<UrunTipi> urunTipleri = new ArrayList();
+    private UrunTipi urunTipi;
 
     public UrunTanimiForm() {
 
@@ -38,7 +40,7 @@ public class UrunTanimiForm implements Serializable {
 
     public String urunTanimiEkle() {
 
-          urunTanimiService.urunTanimiEkle(urunTanimi);
+        urunTanimiService.urunTanimiEkle(urunTanimi);
         return "formUrunTanimi";
     }
 
@@ -81,4 +83,27 @@ public class UrunTanimiForm implements Serializable {
         this.urunTanimiId = urunTanimiId;
     }
 
+
+    public List<SelectItem> getUrunTipleri() {
+        List<SelectItem> items = new ArrayList<SelectItem>();
+
+        List<UrunTipi> urunTipleri = urunTipiService.getUrunTipleri();
+
+
+        if(urunTipleri != null && urunTipleri.size() > 0){
+            for (UrunTipi anketCevap : urunTipleri) {
+                items.add(new SelectItem(anketCevap, anketCevap.getUrunTipi()));
+            }
+        }
+        return items;
+
+    }
+
+    public UrunTipi getUrunTipi() {
+        return urunTipi;
+    }
+
+    public void setUrunTipi(UrunTipi urunTipi) {
+        this.urunTipi = urunTipi;
+    }
 }
