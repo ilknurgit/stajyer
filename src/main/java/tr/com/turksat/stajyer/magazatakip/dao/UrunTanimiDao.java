@@ -36,12 +36,14 @@ public class UrunTanimiDao {
                 String renk = rs.getString("renk");
                 String boyutlar = rs.getString("boyutlar");
                 String agirlik = rs.getString("agirlik");
+
                 urunTanimi.setId(Integer.valueOf(id!=null?id.toString():"null"));
                 urunTanimi.setMarka(marka);
                 urunTanimi.setUrunModel(model);
                 urunTanimi.setUrunRenk(renk);
                 urunTanimi.setUrunBoyutlar(boyutlar);
                 urunTanimi.setUrunAgirlik(agirlik);
+                urunTanimi.setUrunDate(new java.util.Date());
 
 
                 uruntanimiList.add(urunTanimi);//Her bir dönen sonucu listeye ekliyoruz.
@@ -79,7 +81,7 @@ public class UrunTanimiDao {
             ps.setString(1, urunTanimi.getUrunModel());
             ps.setString(2, urunTanimi.getMarka());
             ps.setString(3, urunTanimi.getUrunRenk());
-            ps.setDate(4, (Date) urunTanimi.getUrunDate());
+            ps.setDate(4, (Date) new java.util.Date());
             ps.setString(5,  urunTanimi.getUrunBoyutlar());
             ps.setString(6,  urunTanimi.getUrunAgirlik());
             ps.setInt(7,  urunTanimi.getUrunTipi().getId());//ps nesnesine gelen alanı koyduk.
