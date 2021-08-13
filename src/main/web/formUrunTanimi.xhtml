@@ -16,9 +16,9 @@
         <ui:define name="content">
             <h:form id="form">
                 <p:panelGrid id="urunTipiForm" columns="2" cellpadding="5" >
-                    <p:selectOneMenu id="urunTipi" value="#{urunTipiForm.urunTipi}" converter="urunTipiConverter">
+                    <p:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="urunTipiConverter">
 
-                        <f:selectItems value="#{urunTipiForm.urunTipleri}" var="tip" itemValue="#{tip}"
+                        <f:selectItems value="#{urunTanimiForm.urunTipleri}" var="tip" itemValue="#{tip}"
                                        itemLabel="#{tip.urunTipi}"/></p:selectOneMenu>
 
                     <p:outputLabel value="Ürün Markasi/Tanimi" for="urunTanimi"/>
