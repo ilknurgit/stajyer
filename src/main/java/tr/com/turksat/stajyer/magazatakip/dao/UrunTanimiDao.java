@@ -77,7 +77,7 @@ public class UrunTanimiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(urun_tipi_id,marka,model,renk,boyut,agirlik) VALUES(?,?,?,?,?,?)");
+            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(marka,model,renk,boyut,agirlik) VALUES(?,?,?,?,?)");
             //ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
             // --id alanını eklemedik çünkü zaten otomatik set olacak.
             ps.setString(1, urunTanimi.getUrunMarka());//ps nesnesine gelen alanı koyduk.
@@ -85,6 +85,7 @@ public class UrunTanimiDao {
             ps.setString(3, urunTanimi.getUrunRenk());//ps nesnesine gelen alanı koyduk.
             ps.setString(4, urunTanimi.getUrunBoyut());//ps nesnesine gelen alanı koyduk.
             ps.setString(5, urunTanimi.getUrunAgirlik());//ps nesnesine gelen alanı koyduk.
+
             i=ps.executeUpdate();//executeUpdate verilen sorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }
