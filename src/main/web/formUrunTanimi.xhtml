@@ -17,7 +17,7 @@
             <h:form id="form">
                 <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
                     <p:outputLabel value="Ürün Tipi" for="urunTipi"/>
-                    <p:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="urunTipiConverter">
+                    <p:selectOneMenu id="urunTipi" value="#{urunTanimiForm.selected}" converter="urunTipiConverter">
 
                         <f:selectItems value="#{urunTanimiForm.urunTipleri}" var="tip" itemValue="#{tip}"
                                        itemLabel="#{tip.urunTipi}"/>
@@ -37,6 +37,10 @@
 
                     <p:outputLabel value="Ürün Ağırlığı" for="urunAgirligi"/>
                     <h:inputText id="urunAgirligi" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
+
+
+                    <p:outputLabel value="Ürün Date" for="urunDate"/>
+                    <h:inputText id="urunDate" value="#{urunTanimiForm.urunTanimi.urunDate}" />
                     <h:column></h:column>
 
 

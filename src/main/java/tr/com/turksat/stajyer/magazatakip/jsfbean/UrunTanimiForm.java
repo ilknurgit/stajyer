@@ -25,6 +25,7 @@ public class UrunTanimiForm implements Serializable {
     private String urunTanimiId="";
     List<UrunTipi> urunTipleri = new ArrayList();
     private UrunTipi urunTipi;
+    private String selected;
 
     public UrunTanimiForm() {
 
@@ -93,5 +94,13 @@ public class UrunTanimiForm implements Serializable {
 
     public void setUrunTipi(UrunTipi urunTipi) {
         this.urunTipi = urunTipi;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
     }
 }
