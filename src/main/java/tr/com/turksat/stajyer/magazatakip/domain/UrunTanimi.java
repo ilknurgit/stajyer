@@ -32,7 +32,8 @@ public class UrunTanimi implements Serializable {
     @Column(name = "agirlik", length = 50)
     private String urunAgirlik;
 
-
+    @ManyToOne
+    @JoinColumn(name = "urun_tipi_id")
     private UrunTipi urunTipi;
 
     public int getId() {
