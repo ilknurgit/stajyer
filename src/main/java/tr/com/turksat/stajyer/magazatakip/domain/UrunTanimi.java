@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class UrunTanimi implements Serializable {
 
@@ -106,5 +107,24 @@ public class UrunTanimi implements Serializable {
         this.urunTipi = urunTipi;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UrunTanimi that = (UrunTanimi) o;
+        return  Objects.equals(getId(), that.getId()) &&
+                Objects.equals(getUrunTipi(),that.getUrunTipi()) &&
+                Objects.equals(getMarka(), that.getId()) &&
+                Objects.equals(getUrunAgirlik(), that.getId()) &&
+                Objects.equals(getUrunBoyutlar(), that.getId()) &&
+                Objects.equals(getUrunDate(), that.getId()) &&
+                Objects.equals(getUrunModel(), that.getId()) &&
+                Objects.equals(getUrunRenk(), that.getId()) ;
 
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(),getUrunTipi(),getMarka(),getUrunAgirlik(),getUrunBoyutlar(),getUrunDate(),getUrunModel(),getUrunRenk());
+    }
 }
