@@ -33,8 +33,23 @@ public class UrunTanimi implements Serializable {
     private String urunAgirlik;
 
     @ManyToOne
-    @JoinColumn(name = "urun_tipi_id")
+    @JoinColumn(name = "urun_tipi_id" , referencedColumnName = "id", nullable = false,
+            foreignKey = @ForeignKey(name = "urun_tipi_id_fk"))
     private UrunTipi urunTipi;
+
+    public UrunTanimi() {
+    }
+
+    public UrunTanimi(int id, String marka, String urunModel, String urunRenk, Date urunDate, String urunBoyutlar, String urunAgirlik, UrunTipi urunTipi) {
+        this.id = id;
+        this.marka = marka;
+        this.urunModel = urunModel;
+        this.urunRenk = urunRenk;
+        this.urunDate = urunDate;
+        this.urunBoyutlar = urunBoyutlar;
+        this.urunAgirlik = urunAgirlik;
+        this.urunTipi = urunTipi;
+    }
 
     public int getId() {
         return id;
