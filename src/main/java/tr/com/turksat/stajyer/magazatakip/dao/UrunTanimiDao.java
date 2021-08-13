@@ -73,7 +73,7 @@ public class UrunTanimiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk, uretim_tarihi, boyutlar, agirlik,urun_tipi_id) VALUES(?, ?, ?, ?, ?, ?,?)");
+            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk, uretim_tarihi, boyutlar, agirlik,urun_tipi_id) VALUES(?, ?, ?, ?, ?, ?,  ?)");
             //ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
             // --ürün tanimi id ve ürün tiği id alanlarını eklemedik çünkü zaten otomatik set olacak.
             ps.setString(1, urunTanimi.getUrunModel());

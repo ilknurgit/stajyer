@@ -32,24 +32,11 @@ public class UrunTanimi implements Serializable {
     @Column(name = "agirlik", length = 50)
     private String urunAgirlik;
 
+
     @ManyToOne
     @JoinColumn(name = "urun_tipi_id" , referencedColumnName = "id", nullable = false,
             foreignKey = @ForeignKey(name = "urun_tipi_id_fk"))
     private UrunTipi urunTipi;
-
-    public UrunTanimi() {
-    }
-
-    public UrunTanimi(int id, String marka, String urunModel, String urunRenk, Date urunDate, String urunBoyutlar, String urunAgirlik, UrunTipi urunTipi) {
-        this.id = id;
-        this.marka = marka;
-        this.urunModel = urunModel;
-        this.urunRenk = urunRenk;
-        this.urunDate = urunDate;
-        this.urunBoyutlar = urunBoyutlar;
-        this.urunAgirlik = urunAgirlik;
-        this.urunTipi = urunTipi;
-    }
 
     public int getId() {
         return id;
@@ -130,12 +117,12 @@ public class UrunTanimi implements Serializable {
         UrunTanimi that = (UrunTanimi) o;
         return  Objects.equals(getId(), that.getId()) &&
                 Objects.equals(getUrunTipi(),that.getUrunTipi()) &&
-                Objects.equals(getMarka(), that.getId()) &&
-                Objects.equals(getUrunAgirlik(), that.getId()) &&
-                Objects.equals(getUrunBoyutlar(), that.getId()) &&
-                Objects.equals(getUrunDate(), that.getId()) &&
-                Objects.equals(getUrunModel(), that.getId()) &&
-                Objects.equals(getUrunRenk(), that.getId()) ;
+                Objects.equals(getMarka(), that.getMarka()) &&
+                Objects.equals(getUrunAgirlik(), that.getUrunAgirlik()) &&
+                Objects.equals(getUrunBoyutlar(), that.getUrunBoyutlar()) &&
+                Objects.equals(getUrunDate(), that.getUrunDate()) &&
+                Objects.equals(getUrunModel(), that.getUrunModel()) &&
+                Objects.equals(getUrunRenk(), that.getUrunRenk()) ;
 
     }
 

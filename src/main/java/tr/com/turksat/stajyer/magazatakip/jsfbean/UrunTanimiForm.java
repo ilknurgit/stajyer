@@ -33,8 +33,7 @@ public class UrunTanimiForm implements Serializable {
     //bu method sayfa ilk geldiği anda görüntülemeyi sağlar.
     @PostConstruct
     public void init() {
-        urunTanimi = new UrunTanimi();
-        urunTanimlari=urunTanimiService.getUrunTanimlari();
+     urunTanimi=new UrunTanimi();
 
     }
 
@@ -84,19 +83,8 @@ public class UrunTanimiForm implements Serializable {
     }
 
 
-    public List<SelectItem> getUrunTipleri() {
-        List<SelectItem> items = new ArrayList<SelectItem>();
-
-        List<UrunTipi> urunTipleri = urunTipiService.getUrunTipleri();
-
-
-        if(urunTipleri != null && urunTipleri.size() > 0){
-            for (UrunTipi anketCevap : urunTipleri) {
-                items.add(new SelectItem(anketCevap, anketCevap.getUrunTipi()));
-            }
-        }
-        return items;
-
+    public List<UrunTipi> getUrunTipleri() {
+        return  urunTipiService.getUrunTipleri();
     }
 
     public UrunTipi getUrunTipi() {
