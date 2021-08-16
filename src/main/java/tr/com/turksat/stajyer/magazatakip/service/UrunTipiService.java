@@ -32,7 +32,7 @@ public class UrunTipiService {
     }
 
 
-//    public UrunTipi findUrunTipi(String id)
+//    public UrunTipi findUrunTipi(Long id)
 //    {
 //        return urunTipiDao.
 //    }

@@ -50,6 +50,6 @@ public class UrunTipiConverter implements Converter {
             throw new ConverterException(new FacesMessage(modelValue + " is not a valid UrunTipi"));
         }
     }
+    //test
 
 }
-

@@ -145,7 +145,7 @@ public class UrunTipiDao {
     }
 }
 
-//    public UrunTipi findUrunTipi(String id) {
+//    public UrunTipi findUrunTipi(Long id) {
 //        try {
 //
 //            con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)

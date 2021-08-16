@@ -17,7 +17,7 @@
             <h:form id="form">
                 <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
                     <p:outputLabel value="Ürün Tipi" for="urunTipi"/>
-                    <h:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="#{urunTipiConverter}">
+                    <h:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="urunTipiConverter">
                         <f:ajax event="change"
                                 listener="#{urunTanimiForm.urunTipiSecildi}"
                         />
