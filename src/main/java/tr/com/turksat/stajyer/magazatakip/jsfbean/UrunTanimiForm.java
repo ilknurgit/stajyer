@@ -50,6 +50,9 @@ public class UrunTanimiForm implements Serializable {
         return null;
     }
 
+
+
+
     public List<UrunTanimi> getUrunTanimleri() {
         return  urunTanimiService.getUrunTanimleri();
     }
@@ -57,7 +60,6 @@ public class UrunTanimiForm implements Serializable {
     public void setUrunTanimleri(List<UrunTanimi> urunTanimleri) {
         this.urunTanimleri = urunTanimleri;
     }
-
     public UrunTanimi getUrunTanimi() {
         return urunTanimi;
     }
@@ -65,7 +67,6 @@ public class UrunTanimiForm implements Serializable {
     public void setUrunTanimi(UrunTanimi urunTanimi) {
         this.urunTanimi = urunTanimi;
     }
-
     public String getUrunTanimiId() {
         return urunTanimiId;
     }

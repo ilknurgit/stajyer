@@ -13,6 +13,10 @@ public class UrunTanimi implements Serializable {
     @Column(name = "id",columnDefinition = "serial")
     private int id;
 
+    //urun_tipi_id daha tam eklenmedi
+    @Column(name = "urun_tipi_id", length = 4)
+    private int urunTipiId;
+
     @Column(name = "marka", length = 50)
     private String urunMarka;
 

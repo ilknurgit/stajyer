@@ -19,10 +19,11 @@ public class UrunTipi implements Serializable {
     public UrunTipi() {
     }
 
+
+
     public String getUrunTipi() {
         return urunTipi;
     }
-
     public void setUrunTipi(String urunTipi) {
         this.urunTipi = urunTipi;
     }
@@ -30,7 +31,6 @@ public class UrunTipi implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
