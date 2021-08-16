@@ -14,6 +14,7 @@ import java.util.List;
 // iş mantıkları - ekle ,sil, güncelle
 public class UrunTipiService {
     UrunTipiDao urunTipiDao;
+
     public UrunTipiService() {
         urunTipiDao = new UrunTipiDao();
     }
@@ -25,7 +26,14 @@ public class UrunTipiService {
     public String urunTipiEkle(UrunTipi urunTipi) {
         return urunTipiDao.urunTipiEkle(urunTipi);
     }
+
     public boolean urunTipiSil(UrunTipi urunTipi) {
         return urunTipiDao.urunTipiSil(urunTipi);
     }
+
+
+//    public UrunTipi findUrunTipi(String id)
+//    {
+//        return urunTipiDao.
+//    }
 }

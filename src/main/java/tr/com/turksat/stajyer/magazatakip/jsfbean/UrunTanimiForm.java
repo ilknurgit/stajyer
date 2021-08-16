@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,10 +35,13 @@ public class UrunTanimiForm implements Serializable {
     //bu method sayfa ilk geldiği anda görüntülemeyi sağlar.
     @PostConstruct
     public void init() {
-     urunTanimi=new UrunTanimi();
+        urunTanimi=new UrunTanimi();
 
     }
 
+    public void urunTipiSecildi(AjaxBehaviorEvent ev) {
+
+    }
     public String urunTanimiEkle() {
 
         urunTanimiService.urunTanimiEkle(urunTanimi);

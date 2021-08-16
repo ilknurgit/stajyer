@@ -1,7 +1,6 @@
 package tr.com.turksat.stajyer.magazatakip.dao;
 
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
-import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 
 import javax.faces.context.FacesContext;
 import java.sql.*;
@@ -43,7 +42,7 @@ public class UrunTanimiDao {
                 urunTanimi.setUrunRenk(renk);
                 urunTanimi.setUrunBoyutlar(boyutlar);
                 urunTanimi.setUrunAgirlik(agirlik);
-                urunTanimi.setUrunDate(new java.util.Date());
+
 
 
                 uruntanimiList.add(urunTanimi);//Her bir dönen sonucu listeye ekliyoruz.
@@ -75,16 +74,15 @@ public class UrunTanimiDao {
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk, uretim_tarihi, boyutlar, agirlik,urun_tipi_id) VALUES(?, ?, ?, ?, ?, ?,  ?)");
+            ps=con.prepareStatement("INSERT INTO stajyer.urun_tanimi(model, marka, renk,  boyutlar, agirlik,urun_tipi_id) VALUES(?, ?, ?, ?, ?, ?)");
             //ps nesnesine SQL komutunu bildiriyoruz.İsterseniz parametre olarak SQL kodu yerine üstteki sql de verebilirsiniz.
             // --ürün tanimi id ve ürün tiği id alanlarını eklemedik çünkü zaten otomatik set olacak.
             ps.setString(1, urunTanimi.getUrunModel());
             ps.setString(2, urunTanimi.getMarka());
             ps.setString(3, urunTanimi.getUrunRenk());
-            ps.setDate(4, (Date) new java.util.Date());
-            ps.setString(5,  urunTanimi.getUrunBoyutlar());
-            ps.setString(6,  urunTanimi.getUrunAgirlik());
-            ps.setInt(7,  urunTanimi.getUrunTipi().getId());//ps nesnesine gelen alanı koyduk.
+            ps.setString(4,  urunTanimi.getUrunBoyutlar());
+            ps.setString(5,  urunTanimi.getUrunAgirlik());
+            ps.setInt(6,  urunTanimi.getUrunTipi().getId());//ps nesnesine gelen alanı koyduk.
             i=ps.executeUpdate();//executeUpdate verilen Usorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }
@@ -170,3 +168,4 @@ public class UrunTanimiDao {
 
 
 }
+

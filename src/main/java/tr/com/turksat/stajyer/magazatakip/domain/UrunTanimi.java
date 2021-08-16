@@ -23,9 +23,6 @@ public class UrunTanimi implements Serializable {
     @Column(name = "renk", length = 50)
     private String urunRenk;
 
-    @Column(name = "uretim_tarihi", columnDefinition = "date")
-    private Date urunDate;
-
     @Column(name = "boyutlar", length = 50)
     private String urunBoyutlar;
 
@@ -70,14 +67,6 @@ public class UrunTanimi implements Serializable {
         this.urunRenk = urunRenk;
     }
 
-    public Date getUrunDate() {
-        return urunDate;
-    }
-
-    public void setUrunDate(Date urunDate) {
-        this.urunDate = urunDate;
-    }
-
     public String getMarka() {
         return marka;
     }
@@ -120,7 +109,6 @@ public class UrunTanimi implements Serializable {
                 Objects.equals(getMarka(), that.getMarka()) &&
                 Objects.equals(getUrunAgirlik(), that.getUrunAgirlik()) &&
                 Objects.equals(getUrunBoyutlar(), that.getUrunBoyutlar()) &&
-                Objects.equals(getUrunDate(), that.getUrunDate()) &&
                 Objects.equals(getUrunModel(), that.getUrunModel()) &&
                 Objects.equals(getUrunRenk(), that.getUrunRenk()) ;
 
@@ -128,6 +116,7 @@ public class UrunTanimi implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(),getUrunTipi(),getMarka(),getUrunAgirlik(),getUrunBoyutlar(),getUrunDate(),getUrunModel(),getUrunRenk());
+        return Objects.hash(getId(),getUrunTipi(),getMarka(),getUrunAgirlik(),getUrunBoyutlar(),getUrunModel(),getUrunRenk());
     }
 }
+

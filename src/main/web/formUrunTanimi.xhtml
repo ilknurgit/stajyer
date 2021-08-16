@@ -17,11 +17,14 @@
             <h:form id="form">
                 <p:panelGrid id="urunTanimiForm" columns="2" cellpadding="5" >
                     <p:outputLabel value="Ürün Tipi" for="urunTipi"/>
-                    <p:selectOneMenu id="urunTipi" value="#{urunTanimiForm.selected}" converter="urunTipiConverter">
-
+                    <h:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="#{urunTipiConverter}">
+                        <f:ajax event="change"
+                                listener="#{urunTanimiForm.urunTipiSecildi}"
+                        />
+                        <f:selectItems itemValue="" itemLabel=""/>
                         <f:selectItems value="#{urunTanimiForm.urunTipleri}" var="tip" itemValue="#{tip}"
                                        itemLabel="#{tip.urunTipi}"/>
-                    </p:selectOneMenu>
+                    </h:selectOneMenu>
 
                     <p:outputLabel value="Ürün Markasi/Tanimi" for="marka"/>
                     <h:inputText id="marka" value="#{urunTanimiForm.urunTanimi.marka}" />
@@ -38,9 +41,6 @@
                     <p:outputLabel value="Ürün Ağırlığı" for="urunAgirligi"/>
                     <h:inputText id="urunAgirligi" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
 
-
-                    <p:outputLabel value="Ürün Date" for="urunDate"/>
-                    <h:inputText id="urunDate" value="#{urunTanimiForm.urunTanimi.urunDate}" />
                     <h:column></h:column>
 
 
@@ -51,3 +51,4 @@
     </ui:composition>
 </h:body>
 </html>
+
