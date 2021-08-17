@@ -143,16 +143,20 @@ public class UrunTipiDao {
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
-}
 
-//    public UrunTipi findUrunTipi(Long id) {
-//        try {
-//
-//            con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
-//            ps = con.prepareStatement(
-//                    "select id from stajyer.urun_tipi where id :=id"); //urun_tipi tablosundaki herşeyi çek diyoruz.
-//            ResultSet rs = ps.executeQuery();
-//
-//        }
-//
-//    }
+
+    public UrunTipi findUrunTipi(Long id) {
+        try {
+
+            con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
+            ps = con.prepareStatement(
+                    "select id from stajyer.urun_tipi where id :=id"); //urun_tipi tablosundaki herşeyi çek diyoruz.
+            ResultSet rs = ps.executeQuery();
+        }
+        catch (SQLException exception) {
+            System.out.println("Bir Hata Meydana Geldi!\nHata:" + exception);
+        }
+        return findUrunTipi(id);
+    }
+
+}

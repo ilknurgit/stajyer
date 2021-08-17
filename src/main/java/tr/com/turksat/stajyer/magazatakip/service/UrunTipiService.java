@@ -32,8 +32,8 @@ public class UrunTipiService {
     }
 
 
-//    public UrunTipi findUrunTipi(Long id)
-//    {
-//        return urunTipiDao.
-//    }
+    public UrunTipi findUrunTipi(Long id)
+    {
+        return urunTipiDao.findUrunTipi(id);
+    }
 }
