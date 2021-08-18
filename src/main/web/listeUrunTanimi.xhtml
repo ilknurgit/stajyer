@@ -1,25 +1,47 @@
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title></title>
+</head>
 <h:body>
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
-        <ui:define name="content">
-            <h:form id="form">
-                <p:panelGrid id="grid" columns="2" cellpadding="5">
-                    <p:outputLabel value="Ürün Tanimlari" for="urunTanimi"/>
-                    <p:selectOneMenu id="urunTanimi" value="#{urunTanimiForm.urunTanimi}" converter="urunTanimiConverter">
-
-                        <f:selectItems value="#{urunTanimiForm.urunTanimlari}" var="tip" itemValue="#{tip}"
-                                       itemLabel="#{tip.urunTanimi}"/></p:selectOneMenu>
-
-                    <h:column></h:column>
-
-                </p:panelGrid>
-            </h:form>
-        </ui:define>
+    <ui:define name="content">
+    <h3>Ürün Tanımları</h3>
+    <h:form action="">
+        <h:dataTable value="#{urunTanimiForm.urunTanimlari}" var="urunTanimi" border="2"
+                     cellspacing="1" cellpadding="1">
+            <h:column>
+                <f:facet  name="header">Marka</f:facet>
+                #{urunTanimi.marka}
+            </h:column>
+            <h:column>
+                 <f:facet name="header">Model</f:facet >
+                #{urunTanimi.urunModel}
+            </h:column>
+            <h:column>
+                 <f:facet name="header">Ürün Rengi</f:facet >
+                #{urunTanimi.urunRenk}
+            </h:column>
+            <h:column>
+                 <f:facet name="header">Ürün Boyutu</f:facet >
+                #{urunTanimi.urunBoyutlar}
+            </h:column>
+            <h:column>
+                 <f:facet name="header">Ürün Ağırlığı</f:facet >
+                #{urunTanimi.urunAgirlik}
+            </h:column>
+            <h:column>
+                 <f:facet name="header">Ürün Tipi</f:facet >
+                #{urunTanimi.urunTipi.urunTipi}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+    </ui:define>
     </ui:composition>
 </h:body>
 </html>

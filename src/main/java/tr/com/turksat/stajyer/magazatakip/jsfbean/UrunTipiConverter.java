@@ -47,11 +47,11 @@ public class UrunTipiConverter implements Converter {
         if (modelValue instanceof UrunTipi) {
             return String.valueOf(((UrunTipi) modelValue).getId());
         }
-        else {
+       else {
             throw new ConverterException(new FacesMessage(modelValue + " is not a valid UrunTipi"));
         }
-    }
 
+    }
 
 }
 

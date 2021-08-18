@@ -195,5 +195,8 @@ public class UrunTipiDao {
 //        urunTanimi.setUrunTipi(urunTipi);
         return urunTipi;
     }
+
+
+
 }
 

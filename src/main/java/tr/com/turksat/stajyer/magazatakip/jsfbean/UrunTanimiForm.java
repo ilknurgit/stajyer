@@ -7,9 +7,11 @@ import tr.com.turksat.stajyer.magazatakip.service.UrunTanimiService;
 import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 import java.io.Serializable;
@@ -44,7 +46,11 @@ public class UrunTanimiForm implements Serializable {
     }
     public String urunTanimiEkle(UrunTipi urunTipi) {
         urunTanimiService.urunTanimiEkle(urunTanimi,urunTipi);
-
+        FacesContext.getCurrentInstance().addMessage(
+                null,
+                new FacesMessage(FacesMessage.SEVERITY_WARN,
+                        "Ürün tanımları eklenmiştir",
+                        "Ürün tanımı eklenmiştir;Ürün tanımlarını görmek için Ürün Tanımı Liste menüsüne tıklayınız."));
         return "formUrunTanimi";
     }
 

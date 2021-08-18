@@ -2,6 +2,7 @@ package tr.com.turksat.stajyer.magazatakip.dao;
 
 import tr.com.turksat.stajyer.magazatakip.domain.Urun;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
+import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
 
 import javax.faces.context.FacesContext;
 import java.sql.*;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UrunDao {
+
     PreparedStatement ps=null;
     Connection con=null;
 

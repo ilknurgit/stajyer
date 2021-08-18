@@ -2,6 +2,7 @@ package tr.com.turksat.stajyer.magazatakip.dao;
 
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
+import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.faces.context.FacesContext;
 import java.sql.*;
@@ -10,6 +11,8 @@ import java.util.List;
 
 public class UrunTanimiDao {
 
+
+     UrunTipiService urunTipiService =new UrunTipiService();
     PreparedStatement ps=null;//SQL sorgumuzu tutacak ve çalıştıracak nesne.
     Connection con=null;//Veri tabanına bağlantı yapmamızı sağlayacak nesne.
 
@@ -17,7 +20,7 @@ public class UrunTanimiDao {
     int i=0;
     String errorMessage;
 
-    //ürün tiplerini listemeye yarayan veritabanından ürünleri çeken dao methodu
+    //ürün tanımları listemeye yarayan veritabanından ürün tanımları çeken dao methodu
     public List<UrunTanimi> getUrunTanimlari() {
         try {
 
@@ -36,6 +39,8 @@ public class UrunTanimiDao {
                 String renk = rs.getString("renk");
                 String boyutlar = rs.getString("boyutlar");
                 String agirlik = rs.getString("agirlik");
+                Integer urunTipi = rs.getInt("urun_tipi_id");
+
 
                 urunTanimi.setId(Integer.valueOf(id!=null?id.toString():"null"));
                 urunTanimi.setMarka(marka);
@@ -43,8 +48,8 @@ public class UrunTanimiDao {
                 urunTanimi.setUrunRenk(renk);
                 urunTanimi.setUrunBoyutlar(boyutlar);
                 urunTanimi.setUrunAgirlik(agirlik);
-
-
+                UrunTipi findUrunTipi =urunTipiService.findUrunTipi(urunTipi);
+                urunTanimi.setUrunTipi(findUrunTipi);
 
                 uruntanimiList.add(urunTanimi);//Her bir dönen sonucu listeye ekliyoruz.
 
