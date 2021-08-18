@@ -6,7 +6,6 @@ package tr.com.turksat.stajyer.magazatakip.jsfbean;
 
 
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
-import tr.com.turksat.stajyer.magazatakip.service.UrunService;
 import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.ManagedBean;
@@ -16,7 +15,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
-import javax.persistence.Entity;
+
 
 
 @FacesConverter("urunTipiConverter")
@@ -34,9 +33,9 @@ public class UrunTipiConverter implements Converter {
         }
 
         try {
-            return urunTipiService.findUrunTipi(Long.valueOf(submittedValue));
+            return urunTipiService.findUrunTipi(Integer.valueOf(submittedValue));
         } catch (NumberFormatException e) {
-            throw new ConverterException(new FacesMessage(submittedValue + " is not a valid Warehouse ID"), e);
+            throw new ConverterException(new FacesMessage(submittedValue + " is not a valid UrunTİPİ ID"), e);
         }
 
     }
@@ -47,10 +46,12 @@ public class UrunTipiConverter implements Converter {
 
         if (modelValue instanceof UrunTipi) {
             return String.valueOf(((UrunTipi) modelValue).getId());
-        } else {
+        }
+        else {
             throw new ConverterException(new FacesMessage(modelValue + " is not a valid UrunTipi"));
         }
     }
-    //test
+
 
 }
+

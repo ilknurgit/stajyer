@@ -40,11 +40,11 @@ public class UrunTanimiForm implements Serializable {
     }
 
     public void urunTipiSecildi(AjaxBehaviorEvent ev) {
-
+        System.out.println("secildi");
     }
-    public String urunTanimiEkle() {
+    public String urunTanimiEkle(UrunTipi urunTipi) {
+        urunTanimiService.urunTanimiEkle(urunTanimi,urunTipi);
 
-        urunTanimiService.urunTanimiEkle(urunTanimi);
         return "formUrunTanimi";
     }
 

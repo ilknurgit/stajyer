@@ -1,8 +1,13 @@
 package tr.com.turksat.stajyer.magazatakip.dao;
 
+import org.apache.commons.lang3.StringUtils;
+import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +19,7 @@ import java.util.Map;
  */
 //dao Veritabanı ile ilgili tüm işlerin yapıldığı classlar
 public class UrunTipiDao {
+    protected EntityManager kodsisdEntityManager;
 
     PreparedStatement ps = null;//SQL sorgumuzu tutacak ve çalıştıracak nesne.
     Connection con = null;//Veri tabanına bağlantı yapmamızı sağlayacak nesne.
@@ -145,18 +151,49 @@ public class UrunTipiDao {
     }
 
 
-    public UrunTipi findUrunTipi(Long id) {
+    public UrunTipi findUrunTipi(Integer urunTipiId) {
+        UrunTipi urunTipi=new UrunTipi();
         try {
 
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
             ps = con.prepareStatement(
-                    "select id from stajyer.urun_tipi where id :=id"); //urun_tipi tablosundaki herşeyi çek diyoruz.
-            ResultSet rs = ps.executeQuery();
-        }
-        catch (SQLException exception) {
-            System.out.println("Bir Hata Meydana Geldi!\nHata:" + exception);
-        }
-        return findUrunTipi(id);
-    }
+                    "select * from stajyer.urun_tipi "); //urun_tipi tablosundaki herşeyi çek diyoruz.
+            ResultSet rs = ps.executeQuery(); //SQL Sorgusundan dönecek sonuç rs sonuç kümesi içinde tutulacak.
+            List<UrunTipi> uruntipiList = new ArrayList<>();//AdiAlani sınıfı tipinde liste tanımladık çünkü SQL Sorgusundan dönecek sonuç içindeki Adi Alani kısmına bu tiple ulaşacaz.
+            while (rs.next())//Kayıt olduğu sürece her işlem sonunda 1 satır atla.
+            {
+                urunTipi = new UrunTipi();//SQL Sorgusundan sütunları çekip bu değişkenin içinde type veya id kısmına atıyacağız.
 
+                Integer id = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
+                String name = rs.getString("type");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
+                urunTipi.setId(Integer.valueOf(id != null ? id.toString() : "null"));
+                urunTipi.setUrunTipi(name);
+                uruntipiList.add(urunTipi);//Her bir dönen sonucu listeye ekliyoruz.
+
+            }
+            for(int i=0; i<uruntipiList.size(); i++) {
+                if (uruntipiList.get(i).getId()==urunTipiId){
+                    urunTipi=uruntipiList.get(i);
+                }
+            }
+        } catch (Exception exception) {
+            System.out.println("Bir hata meydana geldi:" + exception);
+            return null;
+        } finally { //try'a da düşse catch'e de bu bloktaki kod çalıştırılacak.
+            try {
+                if (con != null) { //Connection nesnesi belki yukarıda null kalmış olabilir. Kontrol etmekte fayda var.
+                    con.close();
+                }
+                 if (ps != null) { //PreparedStatement nesnesi yukarıda null kalmış olabilir. Kontrol etmekte fayda var.
+                    ps.close();
+                }
+//                urunTanimi.setUrunTipi(urunTipi);
+            } catch (Exception sqlException) {
+                System.out.println("Bir hata meydana geldi:" + sqlException);
+            }
+        }
+//        urunTanimi.setUrunTipi(urunTipi);
+        return urunTipi;
+    }
 }
+

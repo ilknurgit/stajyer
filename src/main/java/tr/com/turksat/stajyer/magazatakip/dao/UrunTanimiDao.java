@@ -1,6 +1,7 @@
 package tr.com.turksat.stajyer.magazatakip.dao;
 
 import tr.com.turksat.stajyer.magazatakip.domain.UrunTanimi;
+import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
 
 import javax.faces.context.FacesContext;
 import java.sql.*;
@@ -70,7 +71,7 @@ public class UrunTanimiDao {
     }
 
     //veritabanına ürün tanimlarını eklememize yarayan dao methodu
-    public String urunTanimiEkle(UrunTanimi urunTanimi)//Sayfadan girilen verileri veri tabanına gönderem metot.
+    public String urunTanimiEkle(UrunTanimi urunTanimi, UrunTipi urunTipi)//Sayfadan girilen verileri veri tabanına gönderem metot.
     {
         try {
             con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
@@ -82,7 +83,7 @@ public class UrunTanimiDao {
             ps.setString(3, urunTanimi.getUrunRenk());
             ps.setString(4,  urunTanimi.getUrunBoyutlar());
             ps.setString(5,  urunTanimi.getUrunAgirlik());
-            ps.setInt(6,  urunTanimi.getUrunTipi().getId());//ps nesnesine gelen alanı koyduk.
+            ps.setInt(6, urunTipi.getId());//ps nesnesine gelen alanı koyduk.
             i=ps.executeUpdate();//executeUpdate verilen Usorguyu çalıştırır ve integer değer döndürür.
             //exequteUdate eğer 0'dan büyük değer döndürürse kayıt başarılı olmuş demektir.
         }
