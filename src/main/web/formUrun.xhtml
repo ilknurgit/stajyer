@@ -17,14 +17,6 @@
             <h:form id="form">
                 <p:panelGrid id="urunForm" columns="2" cellpadding="5" >
 
-                    <p:outputLabel value="Kullanici" for="urunTanimi"/>
-                    <h:selectOneMenu id="kullanici" value="#{urunForm.kullanici}" converter="kullaniciConverter">
-
-                        <f:selectItems itemValue="" itemLabel=""/>
-                        <f:selectItems value="#{urunForm.kullanicilar}" var="tip" itemValue="#{tip}"
-                                       itemLabel="#{tip.kullaniciAdi}"/>
-                    </h:selectOneMenu>
-
                     <p:outputLabel value="Ürün Tanimi/Markası" for="urunTanimi"/>
                     <h:selectOneMenu id="urunTanimi" value="#{urunForm.urunTanimi}" converter="urunTanimiConverter">
                         <f:ajax event="change"
@@ -35,6 +27,15 @@
                                        itemLabel="#{tip.marka}"/>
                     </h:selectOneMenu>
 
+                    <p:outputLabel value="Kullanici" for="kullanici"/>
+                    <h:selectOneMenu id="kullanici" value="#{urunForm.kullanici}" converter="kullaniciConverter">
+                        <f:ajax event="change"
+                                listener="#{urunForm.kullaniciSecildi}"
+                        />
+                        <f:selectItems itemValue="" itemLabel=""/>
+                        <f:selectItems value="#{urunForm.kullanicilar}" var="kullaniciTip" itemValue="#{kullaniciTip}"
+                                       itemLabel="#{kullaniciTip.kullaniciAdi}"/>
+                    </h:selectOneMenu>
 
                     <p:outputLabel value="Ürün Fiyatı" for="urun_fiyat"/>
                     <h:inputText id="urun_fiyat" value="#{urunForm.urun.urunFiyat}" />
@@ -43,10 +44,7 @@
                     <h:inputText id="urun_adedi" value="#{urunForm.urun.urunAdedi}" />
 
 
-                    <h:column></h:column>
-
-
-                    <h:commandButton value="Kaydet" action="#{urunForm.urunEkle(urunForm.urunTanimi,urunForm.kullanici)}" />
+                    <h:commandButton value="Kaydet" actionListener="#{urunForm.urunEkle(urunForm.urunTanimi,urunForm.kullanici)}" />
                 </p:panelGrid>
             </h:form>
         </ui:define>

@@ -57,7 +57,7 @@ public class KullaniciDao {
             {
                 Kullanici kullanici = new Kullanici();
 
-                int id  = rs.getInt("id");
+                Integer id  = rs.getInt("id");
                 String name = rs.getString("kullanici_adi");
                 String sifre = rs.getString("sifre");
                 kullanici.setId(id);
@@ -95,9 +95,9 @@ public class KullaniciDao {
                 Integer id  = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
                 String name = rs.getString("kullanici_adi");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
                 String sifre = rs.getString("sifre");
-                kullanici.setId(id);
+                kullanici.setId(Integer.valueOf(id != null ? id.toString() : "null"));
                 kullanici.setKullaniciAdi(name);
-                        kullanici.setSifre(sifre);
+                kullanici.setSifre(sifre);
                 kullaniciList.add(kullanici);
             }
             for(int i=0; i<kullaniciList.size(); i++) {

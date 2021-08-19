@@ -16,9 +16,9 @@ public class UrunService {
         urunDao = new UrunDao();
     }
 
-//    public List<Urun> getUrunler(){
-//        return  urunDao.getUrunler();
-//    }
+    public List<Urun> getUrunler(){
+        return  urunDao.getUrunler();
+    }
 
     public String urunEkle(Urun urun, UrunTanimi urunTanimi, Kullanici kullanici){
         return urunDao.urunEkle(urun, urunTanimi,kullanici);
@@ -26,6 +26,10 @@ public class UrunService {
 
     public boolean urunSil(Urun urun){
         return urunDao.urunSil(urun);
+    }
+
+    public  Urun findUrun(Integer id){
+        return  urunDao.findUrun(id);
     }
 
 }

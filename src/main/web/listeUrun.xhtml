@@ -12,24 +12,28 @@
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h3>Ürünler</h3>
-<!--            <h:form action="">-->
-<!--                <h:dataTable value="#{urunForm.urunler}" var="urun" border="2"-->
-<!--                             cellspacing="1" cellpadding="1">-->
-<!--                    <h:column>-->
-<!--                        <f:facet name="header">Ürün Tanımı</f:facet >-->
-<!--                        #{urun.urunTanimi.marka}-->
-<!--                    </h:column>-->
-<!--                    <h:column>-->
-<!--                        <f:facet  name="header">Fiyat</f:facet>-->
-<!--                        #{urun.urun_fiyat}-->
-<!--                    </h:column>-->
-<!--                    <h:column>-->
-<!--                        <f:facet name="header">Adet</f:facet >-->
-<!--                        #{urun.urun_adedi}-->
-<!--                    </h:column>-->
+            <h:form action="">
+                <h:dataTable value="#{urunForm.urunler}" var="urun" border="2"
+                             cellspacing="1" cellpadding="1">
+                    <h:column>
+                        <f:facet  name="header">Kullanıcı</f:facet>
+                        #{urun.kullanici.kullaniciAdi}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ürün Adedi</f:facet >
+                        #{urun.urunAdedi}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ürün Fiyat</f:facet >
+                        #{urun.urunFiyat}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ürün Tanımı</f:facet >
+                        #{urun.urunTanimi.marka}
+                    </h:column>
 
-<!--                </h:dataTable>-->
-<!--            </h:form>-->
+                </h:dataTable>
+            </h:form>
         </ui:define>
     </ui:composition>
 </h:body>

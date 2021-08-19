@@ -38,6 +38,7 @@ public class UrunForm implements Serializable {
     private  String selected;
     private Kullanici kullanici;
 
+
     public UrunForm() {
 
     }
@@ -46,8 +47,10 @@ public class UrunForm implements Serializable {
     public void init() {
         urun = new Urun();
     }
-
     public void urunTanimiSecildi(AjaxBehaviorEvent ev) {
+        System.out.println("secildi");
+    }
+    public void kullaniciSecildi(AjaxBehaviorEvent ev) {
         System.out.println("secildi");
     }
     public String urunEkle(UrunTanimi urunTanimi, Kullanici kullanici) {
@@ -152,5 +155,9 @@ public class UrunForm implements Serializable {
 
     public void setKullanicilar(List<Kullanici> kullanicilar) {
         this.kullanicilar = kullanicilar;
+    }
+
+    public List<Urun> getUrunler() {
+        return urunService.getUrunler();
     }
 }
