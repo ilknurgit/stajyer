@@ -14,34 +14,42 @@ import javax.faces.convert.ConverterException;
 @FacesConverter("urunConverter")
 @ManagedBean
 public class UrunConverter implements Converter {
-
-    public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        if (value != null && value.trim().length() > 0) {
-            try {
-                return Integer.valueOf(value);
-            } catch (NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
-            }
-        } else {
-            return null;
-        }
+    @Override
+    public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
+        return null;
     }
 
-    //test
-    public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-        if (object == null || object.equals("")) {
-            return "";
-        } else {
-            if (object instanceof String)
-                return (String) object;
-            if (object instanceof Integer)
-                return String.valueOf(object);
-            if (object != null) {
-                return String.valueOf(((UrunTanimi) object).getId());
-            }
-        }
-        return "-1";
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object o) {
+        return null;
     }
+
+//    public Object getAsObject(FacesContext context, UIComponent component, String submittedValue) {
+//        if (submittedValue == null || submittedValue.isEmpty()) {
+//            return null;
+//        }
+//
+//        try {
+//            return urunTanimiService.findUrunTanimi(Integer.valueOf(submittedValue));
+//        } catch (NumberFormatException e) {
+//            throw new ConverterException(new FacesMessage(submittedValue + " is not a valid UrunTİPİ ID"), e);
+//        }
+//
+//    }
+//    public String getAsString(FacesContext context, UIComponent component, Object modelValue) {
+//        if (modelValue == null) {
+//            return ""; // Never return null here!
+//        }
+//
+//        if (modelValue instanceof UrunTanimi) {
+//            return String.valueOf(((UrunTanimi) modelValue).getId());
+//        }
+//        else {
+//            throw new ConverterException(new FacesMessage(modelValue + " is not a valid UrunTipi"));
+//        }
+
+//    }
+
 
 }
 

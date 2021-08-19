@@ -12,11 +12,11 @@
 
             <h:body>
                 <p:dataTable var="kullanici" value="#{kullaniciForm.kullanicilar}">
-                    <p:column headerText="kullanici ID">
+                    <p:column headerText="kullanici adi">
                         <h:outputText value="#{kullanici.kullaniciAdi}"/>
                     </p:column>
-                    <p:column headerText="Kullanici Adi">
-                        <h:outputText value="#{kullanici.adsoyad}"/>
+                    <p:column headerText="Kullanici sifre">
+                        <h:outputText value="#{kullanici.sifre}"/>
                     </p:column>
                 </p:dataTable>
 

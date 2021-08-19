@@ -45,6 +45,7 @@ public class UrunTipiDao {
                 String name = rs.getString("type");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
                 urunTipi.setId(Integer.valueOf(id != null ? id.toString() : "null"));
                 urunTipi.setUrunTipi(name);
+
                 uruntipiList.add(urunTipi);//Her bir dönen sonucu listeye ekliyoruz.
 
             }

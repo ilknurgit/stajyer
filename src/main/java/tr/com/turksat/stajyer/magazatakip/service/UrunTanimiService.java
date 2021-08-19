@@ -27,4 +27,9 @@ public class UrunTanimiService {
         return urunTanimiDao.urunTanimiSil(urunTanimi);
     }
 
+    public UrunTanimi findUrunTanimi(Integer id)
+    {
+        return urunTanimiDao.findUrunTanimi(id);
+    }
+
 }

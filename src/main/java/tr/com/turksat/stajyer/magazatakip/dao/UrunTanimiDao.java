@@ -12,7 +12,7 @@ import java.util.List;
 public class UrunTanimiDao {
 
 
-     UrunTipiService urunTipiService =new UrunTipiService();
+    UrunTipiService urunTipiService =new UrunTipiService();
     PreparedStatement ps=null;//SQL sorgumuzu tutacak ve çalıştıracak nesne.
     Connection con=null;//Veri tabanına bağlantı yapmamızı sağlayacak nesne.
 
@@ -172,6 +172,62 @@ public class UrunTanimiDao {
         this.errorMessage = errorMessage;
     }
 
+    public UrunTanimi findUrunTanimi(Integer urunTanimiId) {
+        UrunTanimi urunTanimi = new UrunTanimi();
+        try {
 
+            con = Database.getInstance().getConnection();///Bağlanacağı veri tabanını ve kullanacağı kullanıcı adı-parolayı bildiriyoruz.(properties-file config den alıyor)
+            ps = con.prepareStatement(
+                    "select * from stajyer.urun_tanimi "); //urun_tipi tablosundaki herşeyi çek diyoruz.
+            ResultSet rs = ps.executeQuery(); //SQL Sorgusundan dönecek sonuç rs sonuç kümesi içinde tutulacak.
+            List<UrunTanimi> uruntanimiList = new ArrayList<>();//AdiAlani sınıfı tipinde liste tanımladık çünkü SQL Sorgusundan dönecek sonuç içindeki Adi Alani kısmına bu tiple ulaşacaz.
+            while (rs.next())//Kayıt olduğu sürece her işlem sonunda 1 satır atla.
+            {
+                urunTanimi = new UrunTanimi();//SQL Sorgusundan sütunları çekip bu değişkenin içinde type veya id kısmına atıyacağız.
+
+                Integer id  = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
+                String marka = rs.getString("marka");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
+                String model = rs.getString("model");
+                String renk = rs.getString("renk");
+                String boyutlar = rs.getString("boyutlar");
+                String agirlik = rs.getString("agirlik");
+                Integer urunTipi = rs.getInt("urun_tipi_id");
+
+
+                urunTanimi.setId(Integer.valueOf(id!=null?id.toString():"null"));
+                urunTanimi.setMarka(marka);
+                urunTanimi.setUrunModel(model);
+                urunTanimi.setUrunRenk(renk);
+                urunTanimi.setUrunBoyutlar(boyutlar);
+                urunTanimi.setUrunAgirlik(agirlik);
+                UrunTipi findUrunTipi =urunTipiService.findUrunTipi(urunTipi);
+                urunTanimi.setUrunTipi(findUrunTipi);
+
+                uruntanimiList.add(urunTanimi);
+            }
+            for(int i=0; i<uruntanimiList.size(); i++) {
+                if (uruntanimiList.get(i).getId()==urunTanimiId){
+                    urunTanimi = uruntanimiList.get(i);
+                }
+            }
+        } catch (Exception exception) {
+            System.out.println("Bir hata meydana geldi:" + exception);
+            return null;
+        } finally { //try'a da düşse catch'e de bu bloktaki kod çalıştırılacak.
+            try {
+                if (con != null) { //Connection nesnesi belki yukarıda null kalmış olabilir. Kontrol etmekte fayda var.
+                    con.close();
+                }
+                if (ps != null) { //PreparedStatement nesnesi yukarıda null kalmış olabilir. Kontrol etmekte fayda var.
+                    ps.close();
+                }
+//                urunTanimi.setUrunTipi(urunTipi);
+            } catch (Exception sqlException) {
+                System.out.println("Bir hata meydana geldi:" + sqlException);
+            }
+        }
+//        urunTanimi.setUrunTipi(urunTipi);
+        return urunTanimi;
+    }
 }
 

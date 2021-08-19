@@ -85,7 +85,7 @@ public class UrunTanimiForm implements Serializable {
         this.urunTanimi = urunTanimi;
     }
 
-    public String getUrunTanimiIdId() {
+    public String getUrunTanimiId() {
         return urunTanimiId;
     }
 

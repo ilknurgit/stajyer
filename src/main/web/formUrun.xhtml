@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
 
+<head>
+    <title></title>
+</head>
 <h:body>
     <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
         <ui:define name="content">
             <h:form id="form">
                 <p:panelGrid id="urunForm" columns="2" cellpadding="5" >
-                    <p:outputLabel value="Ürün Tipi" for="urunTipi"/>
-                    <p:selectOneMenu id="urunTipi" value="#{urunTanimiForm.urunTipi}" converter="urunTipiConverter">
 
-                        <f:selectItems value="#{urunTanimiForm.urunTipleri}" var="tip" itemValue="#{tip}"
-                                       itemLabel="#{tip.urunTipi}"/>
-                    </p:selectOneMenu>
+                    <p:outputLabel value="Kullanici" for="urunTanimi"/>
+                    <h:selectOneMenu id="kullanici" value="#{urunForm.kullanici}" converter="kullaniciConverter">
 
-                    <p:outputLabel value="Ürün Markasi/Tanimi" for="marka"/>
-                    <h:inputText id="marka" value="#{urunTanimiForm.urunTanimi.marka}" />
+                        <f:selectItems itemValue="" itemLabel=""/>
+                        <f:selectItems value="#{urunForm.kullanicilar}" var="tip" itemValue="#{tip}"
+                                       itemLabel="#{tip.kullaniciAdi}"/>
+                    </h:selectOneMenu>
 
-                    <p:outputLabel value="Ürün Modeli" for="urunModel"/>
-                    <h:inputText id="urunModel" value="#{urunTanimiForm.urunTanimi.urunModel}" />
-
-                    <p:outputLabel value="Ürün Rengi" for="urunRengi"/>
-                    <h:inputText id="urunRengi" value="#{urunTanimiForm.urunTanimi.urunRenk}" />
-
-                    <p:outputLabel value="Ürün Boyutları" for="urunBoyutlari"/>
-                    <h:inputText id="urunBoyutlari" value="#{urunTanimiForm.urunTanimi.urunBoyutlar}" />
-
-                    <p:outputLabel value="Ürün Ağırlığı" for="urunAgirligi"/>
-                    <h:inputText id="urunAgirligi" value="#{urunTanimiForm.urunTanimi.urunAgirlik}" />
+                    <p:outputLabel value="Ürün Tanimi/Markası" for="urunTanimi"/>
+                    <h:selectOneMenu id="urunTanimi" value="#{urunForm.urunTanimi}" converter="urunTanimiConverter">
+                        <f:ajax event="change"
+                                listener="#{urunForm.urunTanimiSecildi}"
+                        />
+                        <f:selectItems itemValue="" itemLabel=""/>
+                        <f:selectItems value="#{urunForm.urunTanimlari}" var="tip" itemValue="#{tip}"
+                                       itemLabel="#{tip.marka}"/>
+                    </h:selectOneMenu>
 
 
+                    <p:outputLabel value="Ürün Fiyatı" for="urun_fiyat"/>
+                    <h:inputText id="urun_fiyat" value="#{urunForm.urun.urunFiyat}" />
+
+                    <p:outputLabel value="Ürün Adedi" for="urun_adedi"/>
+                    <h:inputText id="urun_adedi" value="#{urunForm.urun.urunAdedi}" />
 
 
                     <h:column></h:column>
 
 
-                    <h:commandButton value="Kaydet" action="#{urunTanimiForm.urunTanimiEkle()}" />
+                    <h:commandButton value="Kaydet" action="#{urunForm.urunEkle(urunForm.urunTanimi,urunForm.kullanici)}" />
                 </p:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
 </h:body>
-
-
 </html>
+

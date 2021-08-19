@@ -33,6 +33,7 @@ public class UrunTanimi implements Serializable {
     @ManyToOne
     @JoinColumn(name = "urun_tipi_id" , referencedColumnName = "id", nullable = false,
             foreignKey = @ForeignKey(name = "urun_tipi_id_fk"))
+
     private UrunTipi urunTipi;
 
     public int getId() {

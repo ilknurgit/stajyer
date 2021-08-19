@@ -1,17 +1,21 @@
 package tr.com.turksat.stajyer.magazatakip.domain;
+
+import javax.persistence.Column;
+
 /**.
  * Created by iuysal on 05.08.2021
  */
 public class Kullanici
 {
+    @Column(name = "id",columnDefinition = "serial")
+    private int id;
+    @Column(name = "kullanici_adi")
     private String kullaniciAdi;
+    @Column(name = "sifre")
     private String sifre;
-    private String adsoyad;
-
 
     public Kullanici()
     {
-
     }
     public String getKullaniciAdi() {
         return kullaniciAdi;
@@ -25,11 +29,12 @@ public class Kullanici
     public void setSifre(String sifre) {
         this.sifre = sifre;
     }
-    public String getAdsoyad() {
-        return adsoyad;
-    }
-    public void setAdsoyad(String adsoyad) {
-        this.adsoyad = adsoyad;
+
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
