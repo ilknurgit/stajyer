@@ -1,19 +1,18 @@
 package tr.com.turksat.stajyer.magazatakip.jsfbean;
 
 import tr.com.turksat.stajyer.magazatakip.domain.Kullanici;
-import tr.com.turksat.stajyer.magazatakip.domain.UrunTipi;
+
 import tr.com.turksat.stajyer.magazatakip.service.KullaniciService;
-import tr.com.turksat.stajyer.magazatakip.service.UrunTipiService;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/**.
- * Created by iuysal on 05.08.2021
- */
+
 @ManagedBean
 public class KullaniciForm implements Serializable {
 
@@ -46,11 +45,22 @@ public class KullaniciForm implements Serializable {
 
     //GİRİŞ YAP
     public String kullaniciGiris() {
-//        KullaniciService service = new KullaniciService();
-//        if (service.kullaniciGiris(kullanici)) {
-//            return "anaekran/anaekran";
-//        }
-        return "listeUrunTipi";
+        if (kullaniciService.kullaniciGiris(kullanici) == true){
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "Başarılı giriş yapılmıştır.",
+                            "Şifre ve Kullanıcı adı doğru."));
+            return "kullaniciListesi";
+        }
+        else{
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "Şifre ve Kullanıcı Adı hatalı.",
+                            "Şifre ve Kullanıcı adı doğru."));
+            return "yetkisizKullanici";
+        }
     }
 
 

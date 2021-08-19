@@ -29,13 +29,13 @@ public class KullaniciDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) // found
             {
-
                 return true;
             }
             else {
                 return false;
             }
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             System.out.println("hatalı giriş");
             return false;
         } finally {
@@ -68,6 +68,7 @@ public class KullaniciDao {
             }
 
         } catch (Exception ex) {
+
             System.out.println("hatalı giriş "+ex.getLocalizedMessage());
             return kullaniciList;
         } finally {
