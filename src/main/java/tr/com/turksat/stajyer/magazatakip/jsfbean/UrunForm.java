@@ -63,9 +63,9 @@ public class UrunForm implements Serializable {
         return "formUrun";
     }
 
-    public String urunSil() {
+    public String urunSil(Urun urun) {
         urunService.urunSil(urun);
-        return "listeUrun";
+        return "formSatis";
     }
 
     public void urunTemizle() {

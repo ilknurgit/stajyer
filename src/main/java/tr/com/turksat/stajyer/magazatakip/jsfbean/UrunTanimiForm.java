@@ -54,9 +54,9 @@ public class UrunTanimiForm implements Serializable {
         return "formUrunTanimi";
     }
 
-    public String urunTanimiSil() {
+    public String urunTanimiSil(UrunTanimi urunTanimi) {
         urunTanimiService.urunTanimiSil(urunTanimi);
-        return "listeUrunTanimi";
+        return "formSatis";
     }
 
     public void urunTanimiTemizle() {

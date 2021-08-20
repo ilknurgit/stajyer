@@ -42,7 +42,6 @@ public class UrunDao {
                 String urun_adedi = rs.getString("urun_adedi");
                 Integer urunTanimi = rs.getInt("urun_tanimi_id");
 
-
                 urun.setId(Integer.valueOf(id != null ? id.toString() : "null"));
                 Kullanici kullanici = kullaniciService.findKullanici(employee_id);
                 urun.setKullanici(kullanici);
@@ -72,11 +71,11 @@ public class UrunDao {
         }
     }
 
-
     public String urunEkle(Urun urun, UrunTanimi urunTanimi, Kullanici kullanici) {
         try {
             con = Database.getInstance().getConnection();
-            ps = con.prepareStatement("INSERT INTO stajyer.urun(urun_tanimi_id, employee_id, urun_fiyat, urun_adedi) VALUES(?, ?, ?, ?)");
+            ps = con.prepareStatement("INSERT INTO stajyer.urun(urun_tanimi_id, employee_id, urun_fiyat, urun_adedi) " +
+                                            "VALUES(?, ?, ?, ?)");
             ps.setInt(1, urunTanimi.getId());
             ps.setInt(2, kullanici.getId());
             ps.setString(3, urun.getUrunFiyat());
@@ -132,7 +131,6 @@ public class UrunDao {
         else
             return false;
     }
-
 
     public int getI() {
         return i;

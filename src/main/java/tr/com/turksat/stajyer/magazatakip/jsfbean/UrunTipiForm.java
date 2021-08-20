@@ -48,11 +48,16 @@ public class UrunTipiForm implements Serializable {
                 new FacesMessage(FacesMessage.SEVERITY_WARN,
                         "Ürün tipleri eklenmiştir",
                         "Ürün tipleri eklenmiştir;Ürün tipleri görmek için Ürün Tip Liste menüsüne tıklayınız."));
-         return "formUrunTipi";
+        return "formUrunTipi";
     }
 
-    public String urunTipiSil() {
+    public String urunTipiSil(UrunTipi urunTipi) {
         urunTipiService.urunTipiSil(urunTipi);
+        FacesContext.getCurrentInstance().addMessage(
+                null,
+                new FacesMessage(FacesMessage.SEVERITY_WARN,
+                        "Ürün tipi silinmiştir",
+                        ""));
         return "listeUrunTipi";
     }
 

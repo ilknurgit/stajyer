@@ -127,7 +127,7 @@ public class UrunTanimiDao {
         this.id = Integer.valueOf(silinecekUrunTanimi.getId());
         try {
             con = Database.getInstance().getConnection();
-            ps=con.prepareStatement("DELETE FROM stajyer.urun_tipi WHERE id=?");
+            ps=con.prepareStatement("DELETE FROM stajyer.urun_tanimi WHERE id=?");
             ps.setInt(1, silinecekUrunTanimi.getId());
             i=ps.executeUpdate();
         }
@@ -230,4 +230,3 @@ public class UrunTanimiDao {
         return urunTanimi;
     }
 }
-

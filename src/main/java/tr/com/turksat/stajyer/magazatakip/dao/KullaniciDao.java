@@ -10,13 +10,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**.
+/**
+ * .
  * Created by iuysal on 05.08.2021
  */
 public class KullaniciDao {
     Connection con = null;
     PreparedStatement ps = null;
-    public boolean  girisYap(Kullanici kullanici){
+
+    public boolean girisYap(Kullanici kullanici) {
         Connection con = null;
         PreparedStatement ps = null;
         try {
@@ -30,12 +32,10 @@ public class KullaniciDao {
             if (rs.next()) // found
             {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("hatalı giriş");
             return false;
         } finally {
@@ -57,7 +57,7 @@ public class KullaniciDao {
             {
                 Kullanici kullanici = new Kullanici();
 
-                Integer id  = rs.getInt("id");
+                Integer id = rs.getInt("id");
                 String name = rs.getString("kullanici_adi");
                 String sifre = rs.getString("sifre");
                 kullanici.setId(id);
@@ -69,12 +69,11 @@ public class KullaniciDao {
 
         } catch (Exception ex) {
 
-            System.out.println("hatalı giriş "+ex.getLocalizedMessage());
+            System.out.println("hatalı giriş " + ex.getLocalizedMessage());
             return kullaniciList;
         } finally {
             Database.close(con);
         }
-
 
 
         return kullaniciList;
@@ -93,7 +92,7 @@ public class KullaniciDao {
             {
                 kullanici = new Kullanici();//SQL Sorgusundan sütunları çekip bu değişkenin içinde type veya id kısmına atıyacağız.
 
-                Integer id  = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
+                Integer id = rs.getInt("id");//ResultSet içinden o anki indisdeki "id" anahtar kelimesine karşı gelen değer alınıyor.
                 String name = rs.getString("kullanici_adi");//ResultSet içinden o anki indisdeki "type" anahtar kelimesine karşı gelen değer alınıyor.
                 String sifre = rs.getString("sifre");
                 kullanici.setId(Integer.valueOf(id != null ? id.toString() : "null"));
@@ -101,12 +100,13 @@ public class KullaniciDao {
                 kullanici.setSifre(sifre);
                 kullaniciList.add(kullanici);
             }
-            for(int i=0; i<kullaniciList.size(); i++) {
-                if (kullaniciList.get(i).getId()==kullaniciId){
+            for (int i = 0; i < kullaniciList.size(); i++) {
+                if (kullaniciList.get(i).getId() == kullaniciId) {
                     kullanici = kullaniciList.get(i);
                 }
             }
-        } catch (Exception exception) {
+        }
+        catch (Exception exception) {
             System.out.println("Bir hata meydana geldi:" + exception);
             return null;
         } finally { //try'a da düşse catch'e de bu bloktaki kod çalıştırılacak.

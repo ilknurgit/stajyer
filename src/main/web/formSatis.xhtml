@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<head>
+   <title></title>
+</head>
+<h:body>
+   <ui:composition template="/WEB-INF/templates/baseLayout.xhtml">
+      <ui:define name="content">
+         <h:form id="form">
+            <p:panelGrid id="satisForm" columns="2" cellpadding="5" >
+
+               <p:outputLabel value="Musteri" for="musteri"/>
+               <h:selectOneMenu id="musteri" value="#{satisForm.musteri}" converter="musteriConverter">
+
+                  <f:selectItems itemValue="" itemLabel=""/>
+                  <f:selectItems value="#{satisForm.musteriler}" var="tip" itemValue="#{tip}"
+                                 itemLabel="#{tip.musteriAdi}"/>
+               </h:selectOneMenu>
+
+               <p:outputLabel value="Ürünler" for="urun"/>
+               <h:selectOneMenu id="urun" value="#{satisForm.urun}" converter="urunConverter">
+                  <f:selectItems itemValue="" itemLabel=""/>
+                  <f:selectItems value="#{satisForm.urunler}" var="urunTip" itemValue="#{urunTip}"
+                                 itemLabel="#{urunTip.urunTanimi.urunTipi.urunTipi}"/>
+               </h:selectOneMenu>
+
+               <p:outputLabel value="Satış Tarihi" for="satisTarih"/>
+               <h:inputText id="satisTarih" value="#{satisForm.satis.satisTarihi}" />
+
+
+
+
+               <h:commandButton value="Kaydet" actionListener="#{satisForm.satisYap(satisForm.satis)}" />
+            </p:panelGrid>
+         </h:form>
+      </ui:define>
+   </ui:composition>
+</h:body>
+</html>

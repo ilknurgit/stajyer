@@ -17,7 +17,7 @@ public class Database {
         return new Database();
     }
 
-    public  Connection getConnection() {
+    public Connection getConnection() {
         try {
             Class.forName("org.postgresql.Driver"); //Hangi türde bir veri tabanını kullanacağını bildiriyoruz.
             HashMap<String, String> dbBilgileri = getDbBilgileri();
@@ -41,7 +41,7 @@ public class Database {
     }
 
 
-    public HashMap<String, String> getDbBilgileri()  {
+    public HashMap<String, String> getDbBilgileri() {
         InputStream inputStream = null;
         HashMap<String, String> dbBilgileri = new HashMap<>();
         try {
@@ -59,7 +59,6 @@ public class Database {
             dbBilgileri.put("user", user);
             String password = prop.getProperty("db.password");
             dbBilgileri.put("password", password);
-
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
